@@ -1,11 +1,30 @@
 ﻿<Application
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MonkeyTweet.App">
+    x:Class="CorporateBsGenerator.App">
+  
   <Application.Resources>
     <ResourceDictionary>
-      <Color x:Key="backgroundColor">#33302E</Color>
-      <Color x:Key="textColor">White</Color>
+      <Color x:Key="BackgroundColor">#33302E</Color>
+      <Color x:Key="TextColor">White</Color>
+      <Color x:Key="HeadingColor">Green</Color>
+    
+      <Style x:Key="LabelHeading"
+             TargetType="Label">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="TextColor" Value="{StaticResource HeadingColor}"/>
+      </Style>
+
+      <Style x:Key="LabelInstruction"
+         	 TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+      </Style>
+    
     </ResourceDictionary>
   </Application.Resources>
 </Application>
