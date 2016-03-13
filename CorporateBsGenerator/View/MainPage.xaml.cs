@@ -1,10 +1,14 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Globalization;
+using CorporateBsGenerator.Services;
 using Xamarin.Forms;
 
 namespace CorporateBsGenerator.View
 {
     public partial class MainPage : ContentPage
     {
+        private readonly GeneratorService _service = new GeneratorService();
         public MainPage()
         {
             InitializeComponent();
@@ -18,7 +22,11 @@ namespace CorporateBsGenerator.View
 
         private void OnGenerateClicked(object sender, EventArgs e)
         {
-            DisplayAlert(Title, "Boo", "Ok");
+            var statement = _service.Generate();
+            var firstLetter = statement.ToCharArray(0, 1);
+            var theRest = statement.ToCharArray(1, statement.Length - 1);
+			firstLetter[0] = char.ToUpper(firstLetter[0]);
+            LabelResult.Text = new string(firstLetter) + new string(theRest) + ".";
         }
     }
 }

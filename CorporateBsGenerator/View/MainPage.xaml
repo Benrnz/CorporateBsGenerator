@@ -15,5 +15,10 @@
 		<Button
 			Text="Generate the Lingo" 
       Clicked="OnGenerateClicked"/>
+      <Label x:Name="LabelResult" 
+             Style="{StaticResource LabelInstruction}"
+             VerticalOptions="CenterAndExpand"
+             VerticalTextAlignment="Center"
+             Text=""/>
 	</StackLayout>
 </ContentPage>
