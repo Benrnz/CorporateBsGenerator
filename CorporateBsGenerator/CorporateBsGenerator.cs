@@ -1,5 +1,5 @@
 ﻿using System;
-
+using CorporateBsGenerator.View;
 using Xamarin.Forms;
 
 namespace CorporateBsGenerator
@@ -9,17 +9,7 @@ namespace CorporateBsGenerator
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new ContentPage {
-				Content = new StackLayout {
-					VerticalOptions = LayoutOptions.Center,
-					Children = {
-						new Label {
-							XAlign = TextAlignment.Center,
-							Text = "Welcome to the Corporate Bullshit Generator! Prepare to have your career catapulted."
-						}
-					}
-				}
-			};
+            MainPage = new MainPage();
 		}
 
 		protected override void OnStart ()
