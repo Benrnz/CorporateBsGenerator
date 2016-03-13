@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 
 namespace CorporateBsGenerator.View
@@ -20,5 +15,10 @@ namespace CorporateBsGenerator.View
         public string MainText => "Welcome to the Corporate Bull-shit Generator.";
 
         public string Instructions => "Prepare to catapult your career into the stratosphere!";
+
+        private void OnGenerateClicked(object sender, EventArgs e)
+        {
+            DisplayAlert(Title, "Boo", "Ok");
+        }
     }
 }

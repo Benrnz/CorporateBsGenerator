@@ -31,8 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
-		<DependentUpon>App.xaml</DependentUpon>
-	</Compile>
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -54,9 +54,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Style\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="View\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

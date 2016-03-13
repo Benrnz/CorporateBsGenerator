@@ -13,6 +13,7 @@
 			Style="{StaticResource LabelInstruction}"
 			Text="{Binding Instructions}" />
 		<Button
-			Text="Get the Lingo" />
+			Text="Generate the Lingo" 
+      Clicked="OnGenerateClicked"/>
 	</StackLayout>
 </ContentPage>
