@@ -9,7 +9,8 @@ namespace CorporateBsGenerator.View
     public partial class MainPage : ContentPage
     {
         private readonly GeneratorService _service = new GeneratorService();
-        public MainPage()
+
+		public MainPage()
         {
             InitializeComponent();
             BindingContext = this;

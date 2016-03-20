@@ -14,7 +14,7 @@
 			Text="{Binding Instructions}" />
 		<Button
 			Text="Generate the Lingo" 
-      Clicked="OnGenerateClicked"/>
+      		Clicked="OnGenerateClicked"/>
       <Label x:Name="LabelResult" 
              Style="{StaticResource LabelInstruction}"
              VerticalOptions="CenterAndExpand"
