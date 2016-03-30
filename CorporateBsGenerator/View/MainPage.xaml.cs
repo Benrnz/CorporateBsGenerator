@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using CorporateBsGenerator.Services;
 using Xamarin.Forms;
 
@@ -17,7 +18,9 @@ namespace CorporateBsGenerator.View
 
         public string MainText => "Welcome to the Corporate BS Generator.";
 
-        public string Instructions => "Prepare to catapult your career into the stratosphere!";
+        public string Instructions => "Touch 'Generate' to catapult your career into the stratosphere!";
+
+        public ObservableCollection<string> Results { get; set; } = new ObservableCollection<string>();
 
         private void OnGenerateClicked(object sender, EventArgs e)
         {
@@ -25,7 +28,7 @@ namespace CorporateBsGenerator.View
             var firstLetter = statement.ToCharArray(0, 1);
             var theRest = statement.ToCharArray(1, statement.Length - 1);
 			firstLetter[0] = char.ToUpper(firstLetter[0]);
-            LabelResult.Text = new string(firstLetter) + new string(theRest) + ".";
+            Results.Add(new string(firstLetter) + new string(theRest) + ".");
         }
     }
 }

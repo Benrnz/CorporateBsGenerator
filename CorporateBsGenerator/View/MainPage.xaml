@@ -1,24 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	x:Class="CorporateBsGenerator.View.MainPage">
-	<StackLayout
-		Padding="5,20,5,5"
-		Spacing="5">
-		<Label
-			Style="{StaticResource LabelHeading}"
-			Text="{Binding MainText}" />
-		<Label
-			Style="{StaticResource LabelInstruction}"
-			Text="{Binding Instructions}" />
-		<Button
-			Text="Generate the Lingo" 
-      		Clicked="OnGenerateClicked"/>
-      <Label x:Name="LabelResult" 
-             Style="{StaticResource LabelInstruction}"
-             VerticalOptions="CenterAndExpand"
-             VerticalTextAlignment="Center"
-             Text=""/>
-	</StackLayout>
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CorporateBsGenerator.View.MainPage">
+    <StackLayout
+        Padding="5,20,5,5"
+        Spacing="5">
+        <Label
+            Style="{StaticResource LabelHeading}"
+            Text="{Binding MainText}" />
+        <Label
+            Style="{StaticResource LabelInstruction}"
+            Text="{Binding Instructions}" />
+        <Button
+            Text="Generate"
+            Clicked="OnGenerateClicked"/>
+        <ListView ItemsSource="{Binding Results}"/>
+    </StackLayout>
 </ContentPage>
