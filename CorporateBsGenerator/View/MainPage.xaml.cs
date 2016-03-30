@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Globalization;
 using CorporateBsGenerator.Services;
 using Xamarin.Forms;
 
@@ -17,7 +15,7 @@ namespace CorporateBsGenerator.View
             Title = "Corporate BS Generator";
         }
 
-        public string MainText => "Welcome to the Corporate Bull-shit Generator.";
+        public string MainText => "Welcome to the Corporate BS Generator.";
 
         public string Instructions => "Prepare to catapult your career into the stratosphere!";
 

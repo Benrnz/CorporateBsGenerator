@@ -1,5 +1,4 @@
-﻿using System;
-using CorporateBsGenerator.View;
+﻿using CorporateBsGenerator.View;
 using Xamarin.Forms;
 
 namespace CorporateBsGenerator
