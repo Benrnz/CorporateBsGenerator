@@ -1,20 +1,58 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="CorporateBsGenerator.View.MainPage">
-    <StackLayout
-        Padding="5,20,5,5"
-        Spacing="5">
-        <Label
-            Style="{StaticResource LabelHeading}"
-            Text="{Binding MainText}" />
-        <Label
-            Style="{StaticResource LabelInstruction}"
-            Text="{Binding Instructions}" />
-        <Button
-            Text="Generate"
-            Clicked="OnGenerateClicked"/>
-        <ListView ItemsSource="{Binding Results}"/>
-    </StackLayout>
+<ContentPage 
+    x:Class="CorporateBsGenerator.View.MainPage" 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>
+                0, 20, 0, 0
+            </OnPlatform.iOS>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <AbsoluteLayout 
+        HorizontalOptions="FillAndExpand" 
+        VerticalOptions="FillAndExpand">
+        <StackLayout 
+            AbsoluteLayout.LayoutBounds="0,0,1,1" 
+            AbsoluteLayout.LayoutFlags="All" 
+            Spacing="5">
+            <Label 
+                Style="{StaticResource LabelHeading}" 
+                Text="{Binding MainText}" />
+            <Label 
+                Style="{StaticResource LabelInstruction}" 
+                Text="{Binding Instructions}" />
+            <Button 
+                Clicked="OnGenerateClicked" 
+                Text="+">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <OnPlatform.iOS>
+                            True
+                        </OnPlatform.iOS>
+                        <OnPlatform.Android>
+                            False
+                        </OnPlatform.Android>
+                    </OnPlatform>
+                </Button.IsVisible>
+            </Button>
+            <ListView 
+                x:Name="MainList" 
+                ItemsSource="{Binding Results}" />
+        </StackLayout>
+        <local:FloatingActionButtonView 
+            x:Name="Fab" 
+            AbsoluteLayout.LayoutBounds="1,1,AutoSize,AutoSize" 
+            AbsoluteLayout.LayoutFlags="PositionProportional" 
+            ColorNormal="#ff3498db" 
+            ColorPressed="Black" 
+            ColorRipple="#ff3498db" 
+            Command="{Binding FabExecuteCommand}" 
+            ImageName="ic_add.png" 
+            ParentList="{Binding Source={x:Reference MainList}, Path=.}" />
+    </AbsoluteLayout>
+
 </ContentPage>
