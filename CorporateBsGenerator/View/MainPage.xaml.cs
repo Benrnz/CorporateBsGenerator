@@ -33,11 +33,15 @@ namespace CorporateBsGenerator.View
 
         private void OnGenerateClicked(object sender, EventArgs e)
         {
+            LabelInstructions.IsVisible = false;
+
             var statement = _service.Generate();
             var firstLetter = statement.ToCharArray(0, 1);
             var theRest = statement.ToCharArray(1, statement.Length - 1);
 			firstLetter[0] = char.ToUpper(firstLetter[0]);
-            Results.Add(new string(firstLetter) + new string(theRest) + ".");
+            Results.Insert(0, $"{new string(firstLetter)}{new string(theRest)}.");
+
+            // Same as String.Format("{0}{1}.", new string(firstLetter), new string(theRest))
         }
     }
 }

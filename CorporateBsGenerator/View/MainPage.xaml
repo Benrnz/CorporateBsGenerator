@@ -1,7 +1,7 @@
-<ContentPage 
-    x:Class="CorporateBsGenerator.View.MainPage" 
-    xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator" 
+<ContentPage
+    x:Class="CorporateBsGenerator.View.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ContentPage.Padding>
@@ -12,21 +12,26 @@
         </OnPlatform>
     </ContentPage.Padding>
 
-    <AbsoluteLayout 
-        HorizontalOptions="FillAndExpand" 
+    <AbsoluteLayout
+        HorizontalOptions="FillAndExpand"
         VerticalOptions="FillAndExpand">
-        <StackLayout 
-            AbsoluteLayout.LayoutBounds="0,0,1,1" 
-            AbsoluteLayout.LayoutFlags="All" 
+
+        <StackLayout
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
             Spacing="5">
-            <Label 
-                Style="{StaticResource LabelHeading}" 
+
+            <Label
+                Style="{StaticResource Style.LabelHeading}"
                 Text="{Binding MainText}" />
-            <Label 
-                Style="{StaticResource LabelInstruction}" 
+
+            <Label
+                x:Name="LabelInstructions"
+                Style="{StaticResource Style.LabelInstruction}"
                 Text="{Binding Instructions}" />
-            <Button 
-                Clicked="OnGenerateClicked" 
+
+            <Button
+                Clicked="OnGenerateClicked"
                 Text="+">
                 <Button.IsVisible>
                     <OnPlatform x:TypeArguments="x:Boolean">
@@ -39,19 +44,36 @@
                     </OnPlatform>
                 </Button.IsVisible>
             </Button>
-            <ListView 
-                x:Name="MainList" 
-                ItemsSource="{Binding Results}" />
+
+            <ListView
+                x:Name="MainList"
+                ItemsSource="{Binding Results}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Padding="5">
+                                    <Label Text="{Binding .}"
+                                           TextColor="#3498DB"
+                                           FontSize="16"
+                                           LineBreakMode="WordWrap"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackLayout>
-        <local:FloatingActionButtonView 
-            x:Name="Fab" 
-            AbsoluteLayout.LayoutBounds="1,1,AutoSize,AutoSize" 
-            AbsoluteLayout.LayoutFlags="PositionProportional" 
-            ColorNormal="#ff3498db" 
-            ColorPressed="Black" 
-            ColorRipple="#ff3498db" 
-            Command="{Binding FabExecuteCommand}" 
-            ImageName="ic_add.png" 
+
+        <local:FloatingActionButtonView
+            AbsoluteLayout.LayoutBounds="1,1,AutoSize,AutoSize"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            ColorNormal="#ff3498db"
+            ColorPressed="Black"
+            ColorRipple="#ff3498db"
+            Command="{Binding FabExecuteCommand}"
+            ImageName="ic_add.png"
             ParentList="{Binding Source={x:Reference MainList}, Path=.}" />
     </AbsoluteLayout>
 
