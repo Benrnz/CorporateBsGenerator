@@ -9,7 +9,7 @@
       <Color x:Key="TextColor">White</Color>
       <Color x:Key="HeadingColor">Green</Color>
     
-      <Style x:Key="LabelHeading"
+      <Style x:Key="Style.LabelHeading"
              TargetType="Label">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="VerticalOptions" Value="Center"/>
@@ -17,7 +17,7 @@
         <Setter Property="TextColor" Value="{StaticResource HeadingColor}"/>
       </Style>
 
-      <Style x:Key="LabelInstruction"
+      <Style x:Key="Style.LabelInstruction"
          	 TargetType="Label">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="VerticalOptions" Value="Center"/>
