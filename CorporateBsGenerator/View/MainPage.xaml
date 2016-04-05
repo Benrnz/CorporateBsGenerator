@@ -4,6 +4,8 @@
     xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <!-- On iOS the status bar can be overwritten if the App draws itself at co-ordinates 
+         0,0. So to avoid this iOS needs top padding of 20. --> 
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <OnPlatform.iOS>
@@ -12,6 +14,7 @@
         </OnPlatform>
     </ContentPage.Padding>
 
+    <!-- Take up the whole screen -->
     <AbsoluteLayout HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand">
 
@@ -28,6 +31,7 @@
                    Style="{StaticResource Style.LabelInstruction}"
                    Text="{Binding Instructions}" />
 
+            <!-- This button is for iOS only.  It will be hidden on Android. -->
             <Button Clicked="OnGenerateClicked"
                     Text="+">
                 <Button.IsVisible>
@@ -58,6 +62,10 @@
 
         </StackLayout>
 
+        <!-- This custom button control is for Android only. It will be hidden on 
+             iOS because the iOS project does not have a Custom Renderer to draw it. -->
+        <!-- x,y position is proportional, but size is absolute. The AutoSize will 
+             allow the control size itself to whatever size it needs. -->
         <local:FloatingActionButtonView AbsoluteLayout.LayoutBounds="1,1,AutoSize,AutoSize"
                                         AbsoluteLayout.LayoutFlags="PositionProportional"
                                         ColorNormal="#ff3498db"
