@@ -1,11 +1,12 @@
 ﻿{
-  "View/MainPage.xaml" : 
+  "MainPage.xaml" : 
     {
       "MainText": "Corporate BS Generator",
       "Instructions": "Touch '+' to catapult your career into the stratosphere!",
       "Results": [
         "Test Data 123",
-        "Test Data 345"
+        "Test Data 345", 
+        "Test Data 567"
       ]
     }
 }
