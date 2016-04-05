@@ -12,42 +12,34 @@
         </OnPlatform>
     </ContentPage.Padding>
 
-    <AbsoluteLayout
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
 
+        <!-- x,y position is absolute, but size is proportional -->
         <StackLayout
-            AbsoluteLayout.LayoutBounds="0,0,1,1"
-            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="5,0,1,1"
+            AbsoluteLayout.LayoutFlags="SizeProportional" 
             Spacing="5">
 
-            <Label
-                Style="{StaticResource Style.LabelHeading}"
-                Text="{Binding MainText}" />
+            <Label Style="{StaticResource Style.LabelHeading}"
+                   Text="{Binding MainText}" />
 
-            <Label
-                x:Name="LabelInstructions"
-                Style="{StaticResource Style.LabelInstruction}"
-                Text="{Binding Instructions}" />
+            <Label x:Name="LabelInstructions"
+                   Style="{StaticResource Style.LabelInstruction}"
+                   Text="{Binding Instructions}" />
 
-            <Button
-                Clicked="OnGenerateClicked"
-                Text="+">
+            <Button Clicked="OnGenerateClicked"
+                    Text="+">
                 <Button.IsVisible>
                     <OnPlatform x:TypeArguments="x:Boolean">
-                        <OnPlatform.iOS>
-                            True
-                        </OnPlatform.iOS>
-                        <OnPlatform.Android>
-                            False
-                        </OnPlatform.Android>
+                        <OnPlatform.iOS>True</OnPlatform.iOS>
+                        <OnPlatform.Android>False</OnPlatform.Android>
                     </OnPlatform>
                 </Button.IsVisible>
             </Button>
 
-            <ListView
-                x:Name="MainList"
-                ItemsSource="{Binding Results}">
+            <ListView x:Name="MainList"
+                      ItemsSource="{Binding Results}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -66,15 +58,14 @@
 
         </StackLayout>
 
-        <local:FloatingActionButtonView
-            AbsoluteLayout.LayoutBounds="1,1,AutoSize,AutoSize"
-            AbsoluteLayout.LayoutFlags="PositionProportional"
-            ColorNormal="#ff3498db"
-            ColorPressed="Black"
-            ColorRipple="#ff3498db"
-            Command="{Binding FabExecuteCommand}"
-            ImageName="ic_add.png"
-            ParentList="{Binding Source={x:Reference MainList}, Path=.}" />
+        <local:FloatingActionButtonView AbsoluteLayout.LayoutBounds="1,1,AutoSize,AutoSize"
+                                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                                        ColorNormal="#ff3498db"
+                                        ColorPressed="Black"
+                                        ColorRipple="#ff3498db"
+                                        Command="{Binding FabExecuteCommand}"
+                                        ImageName="ic_add.png"
+                                        ParentList="{Binding Source={x:Reference MainList}, Path=.}" />
     </AbsoluteLayout>
 
 </ContentPage>
