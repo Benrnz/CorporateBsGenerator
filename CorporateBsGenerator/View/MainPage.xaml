@@ -1,8 +1,7 @@
-<ContentPage
-    x:Class="CorporateBsGenerator.View.MainPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+<ContentPage x:Class="CorporateBsGenerator.View.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <!-- On iOS the status bar can be overwritten if the App draws itself at co-ordinates 
          0,0. So to avoid this iOS needs top padding of 20. --> 
@@ -14,15 +13,13 @@
         </OnPlatform>
     </ContentPage.Padding>
 
-    <!-- Take up the whole screen -->
-    <AbsoluteLayout HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand">
+    <!-- Take up the whole screen and we're going to position controls at specific co-ordinates. -->
+    <AbsoluteLayout>
 
         <!-- x,y position is absolute, but size is proportional -->
-        <StackLayout
-            AbsoluteLayout.LayoutBounds="5,0,1,1"
-            AbsoluteLayout.LayoutFlags="SizeProportional" 
-            Spacing="5">
+        <StackLayout AbsoluteLayout.LayoutBounds="5,0,1,1"
+                     AbsoluteLayout.LayoutFlags="SizeProportional" 
+                     Spacing="5">
 
             <Label Style="{StaticResource Style.LabelHeading}"
                    Text="{Binding MainText}" />
@@ -72,6 +69,7 @@
                                         ColorPressed="Black"
                                         ColorRipple="#ff3498db"
                                         Command="{Binding FabExecuteCommand}"
+                                        HasShadow="True"
                                         ImageName="ic_add.png"
                                         ParentList="{Binding Source={x:Reference MainList}, Path=.}" />
     </AbsoluteLayout>
