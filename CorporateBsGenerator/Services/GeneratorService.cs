@@ -12,7 +12,7 @@ namespace CorporateBsGenerator.Services
             "continually", "conveniently", "credibly", "distinctively", "dramatically", "dynamically", "efficiently",
             "energistically", "enthusiastically", "globally", "holisticly", "interactively", "intrinsically", "monotonectally",
             "objectively", "phosfluorescently", "proactively", "professionally", "progressively", "quickly", "rapidiously",
-            "seamlessly", "synergistically", "uniquely", "fungibly"
+            "seamlessly", "synergistically", "uniquely", "fungibly", "disruptively", "randmonly"
             };
 
         private static List<string> Verbs = new List<string> {
@@ -26,7 +26,8 @@ namespace CorporateBsGenerator.Services
             "procrastinate", "productivate", "productise", "promote", "provide access to", "pursue", "recaptiualise",
             "reconceptualise", "redefine", "re-engineer", "reintermediate", "reinvent", "repurpose", "restore", "revolutionise",
             "scale", "seize", "simplify", "strategise", "streamline", "supply", "syndicate", "synergise", "synthesize", "target",
-            "transform", "transition", "underwhelm", "unleash", "utilise", "visualise", "whiteboard", "cloudify", "right-shore"
+            "transform", "transition", "underwhelm", "unleash", "utilise", "visualise", "whiteboard", "cloudify", "right-shore",
+            "evangelise"
             };
 
         private static List<string> Adjectives = new List<string> {
