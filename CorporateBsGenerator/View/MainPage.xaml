@@ -49,6 +49,7 @@
                                     <Label Text="{Binding .}"
                                            TextColor="#3498DB"
                                            FontSize="16"
+                                           FontAttributes="Italic"
                                            LineBreakMode="WordWrap"/>
                                 </StackLayout>
                             </ViewCell.View>
