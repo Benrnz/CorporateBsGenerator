@@ -1,9 +1,10 @@
-<ContentPage
-    x:Class="CorporateBsGenerator.View.MainPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+<ContentPage x:Class="CorporateBsGenerator.View.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <!-- On iOS the status bar can be overwritten if the App draws itself at co-ordinates 
+         0,0. So to avoid this iOS needs top padding of 20. --> 
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <OnPlatform.iOS>
@@ -12,42 +13,34 @@
         </OnPlatform>
     </ContentPage.Padding>
 
-    <AbsoluteLayout
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand">
+    <!-- Take up the whole screen and we're going to position controls at specific co-ordinates. -->
+    <AbsoluteLayout>
 
-        <StackLayout
-            AbsoluteLayout.LayoutBounds="0,0,1,1"
-            AbsoluteLayout.LayoutFlags="All"
-            Spacing="5">
+        <!-- x,y position is absolute, but size is proportional -->
+        <StackLayout AbsoluteLayout.LayoutBounds="5,0,1,1"
+                     AbsoluteLayout.LayoutFlags="SizeProportional" 
+                     Spacing="5">
 
-            <Label
-                Style="{StaticResource Style.LabelHeading}"
-                Text="{Binding MainText}" />
+            <Label Style="{StaticResource Style.LabelHeading}"
+                   Text="{Binding MainText}" />
 
-            <Label
-                x:Name="LabelInstructions"
-                Style="{StaticResource Style.LabelInstruction}"
-                Text="{Binding Instructions}" />
+            <Label x:Name="LabelInstructions"
+                   Style="{StaticResource Style.LabelInstruction}"
+                   Text="{Binding Instructions}" />
 
-            <Button
-                Clicked="OnGenerateClicked"
-                Text="+">
+            <!-- This button is for iOS only.  It will be hidden on Android. -->
+            <Button Clicked="OnGenerateClicked"
+                    Text="+">
                 <Button.IsVisible>
                     <OnPlatform x:TypeArguments="x:Boolean">
-                        <OnPlatform.iOS>
-                            True
-                        </OnPlatform.iOS>
-                        <OnPlatform.Android>
-                            False
-                        </OnPlatform.Android>
+                        <OnPlatform.iOS>True</OnPlatform.iOS>
+                        <OnPlatform.Android>False</OnPlatform.Android>
                     </OnPlatform>
                 </Button.IsVisible>
             </Button>
 
-            <ListView
-                x:Name="MainList"
-                ItemsSource="{Binding Results}">
+            <ListView x:Name="MainList"
+                      ItemsSource="{Binding Results}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -66,15 +59,19 @@
 
         </StackLayout>
 
-        <local:FloatingActionButtonView
-            AbsoluteLayout.LayoutBounds="1,1,AutoSize,AutoSize"
-            AbsoluteLayout.LayoutFlags="PositionProportional"
-            ColorNormal="#ff3498db"
-            ColorPressed="Black"
-            ColorRipple="#ff3498db"
-            Command="{Binding FabExecuteCommand}"
-            ImageName="ic_add.png"
-            ParentList="{Binding Source={x:Reference MainList}, Path=.}" />
+        <!-- This custom button control is for Android only. It will be hidden on 
+             iOS because the iOS project does not have a Custom Renderer to draw it. -->
+        <!-- x,y position is proportional, but size is absolute. The AutoSize will 
+             allow the control size itself to whatever size it needs. -->
+        <local:FloatingActionButtonView AbsoluteLayout.LayoutBounds="1,1,AutoSize,AutoSize"
+                                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                                        ColorNormal="#ff3498db"
+                                        ColorPressed="Black"
+                                        ColorRipple="#ff3498db"
+                                        Command="{Binding FabExecuteCommand}"
+                                        HasShadow="True"
+                                        ImageName="ic_add.png"
+                                        ParentList="{Binding Source={x:Reference MainList}, Path=.}" />
     </AbsoluteLayout>
 
 </ContentPage>
