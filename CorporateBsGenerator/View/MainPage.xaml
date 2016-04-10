@@ -1,7 +1,8 @@
 <ContentPage x:Class="CorporateBsGenerator.View.MainPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="Silver">
 
     <!-- On iOS the status bar can be overwritten if the App draws itself at co-ordinates 
          0,0. So to avoid this iOS needs top padding of 20. --> 
@@ -22,7 +23,7 @@
                      Spacing="5">
 
             <Label Style="{StaticResource Style.LabelHeading}"
-                   Text="{Binding MainText}" />
+                   Text="Corporate BS Generator" />
 
             <Label x:Name="LabelInstructions"
                    Style="{StaticResource Style.LabelInstruction}"
@@ -47,7 +48,7 @@
                             <ViewCell.View>
                                 <StackLayout Padding="5">
                                     <Label Text="{Binding .}"
-                                           TextColor="#3498DB"
+                                           TextColor="Black"
                                            FontSize="16"
                                            FontAttributes="Italic"
                                            LineBreakMode="WordWrap"/>

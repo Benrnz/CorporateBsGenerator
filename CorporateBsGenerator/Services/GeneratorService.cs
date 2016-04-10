@@ -74,7 +74,7 @@ namespace CorporateBsGenerator.Services
             "architecture", "slushy architecture", "gelatinous architectures", "micro-services", "lambda PaaS", "network interfaces", "deep webs", 
             "dark web exploitation", "gamification", "harnessed chaos theories", "wearable computing", "Big Data", "Data Ponds", 
             "Internet of Things", "hyper-convergence", "technological fashion", "Data Privacy", "Device Mash-ups", "v.Next JavaScript fashionables",
-            "encryption", "Management 3.0", "generalising specialists", "deploy trains"
+            "encryption", "Management 3.0", "generalising specialists", "deploy trains", "block-chains"
             };
 
         static GeneratorService()
