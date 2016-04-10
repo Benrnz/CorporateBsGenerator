@@ -48,7 +48,7 @@
                             <ViewCell.View>
                                 <StackLayout Padding="5">
                                     <Label Text="{Binding .}"
-                                           TextColor="Black"
+                                           TextColor="{StaticResource TextColor}"
                                            FontSize="16"
                                            FontAttributes="Italic"
                                            LineBreakMode="WordWrap"/>
