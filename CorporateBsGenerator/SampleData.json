@@ -1,7 +1,6 @@
 ﻿{
   "MainPage.xaml" : 
     {
-      "MainText": "Corporate BS Generator",
       "Instructions": "Touch '+' to catapult your career into the stratosphere!",
       "Results": [
         "Test Data 123",
