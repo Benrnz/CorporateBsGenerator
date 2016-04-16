@@ -14,7 +14,7 @@ namespace CorporateBsGenerator.View
             InitializeComponent();  // Initialise Xamarin.Forms required in every page's code behind.
 
             BindingContext = this;  // Bind to itself. All properties refered to in Bindings will come from here.
-            Title = "Corporate BS Generator"; 
+            Title = "Corporate BS Generator"; // App Title (As seen in App Switcher)
         }
 
         public Command FabExecuteCommand
@@ -24,8 +24,6 @@ namespace CorporateBsGenerator.View
                 return new Command(() => OnGenerateClicked(this, EventArgs.Empty));
             }
         }
-
-        public string MainText => "Corporate BS Generator";
 
         public string Instructions => "Touch + to catapult your career into the stratosphere!";
 

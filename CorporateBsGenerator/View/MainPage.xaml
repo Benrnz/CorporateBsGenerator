@@ -3,17 +3,7 @@
              xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              BackgroundColor="Silver">
-
-    <!-- On iOS the status bar can be overwritten if the App draws itself at co-ordinates 
-         0,0. So to avoid this iOS needs top padding of 20. --> 
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness">
-            <OnPlatform.iOS>
-                0, 20, 0, 0
-            </OnPlatform.iOS>
-        </OnPlatform>
-    </ContentPage.Padding>
-
+  
     <!-- Take up the whole screen and we're going to position controls at specific co-ordinates. -->
     <AbsoluteLayout>
 
@@ -50,7 +40,7 @@
                                     <Label Text="{Binding .}"
                                            TextColor="{StaticResource TextColor}"
                                            FontSize="16"
-                                           FontAttributes="Italic"
+                                           FontAttributes="None"
                                            LineBreakMode="WordWrap"/>
                                 </StackLayout>
                             </ViewCell.View>
