@@ -3,67 +3,76 @@
              xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              BackgroundColor="Silver">
-  
-    <!-- Take up the whole screen and we're going to position controls at specific co-ordinates. -->
-    <AbsoluteLayout>
 
-        <!-- x,y position is absolute, but size is proportional -->
-        <StackLayout AbsoluteLayout.LayoutBounds="5,0,1,1"
-                     AbsoluteLayout.LayoutFlags="SizeProportional" 
-                     Spacing="5">
+    <!-- Takes up the whole screen and we're going to position controls using a table -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Heading Row -->
+            <RowDefinition Height="Auto"/>
+            <!-- Instructions Caption -->
+            <RowDefinition Height="*"/>
+            <!-- Main List and buttons -->
+        </Grid.RowDefinitions>
 
-            <Label Style="{StaticResource Style.LabelHeading}"
-                   Text="Corporate BS Generator" />
+        <Label Grid.Row="0"
+               Style="{StaticResource Style.LabelHeading}"
+               Text="Corporate BS Generator" />
 
-            <Label x:Name="LabelInstructions"
-                   Style="{StaticResource Style.LabelInstruction}"
-                   Text="{Binding Instructions}" />
+        <Label x:Name="LabelInstructions"
+               Grid.Row="1"
+               Style="{StaticResource Style.LabelInstruction}"
+               Text="{Binding Instructions}" />
 
-            <!-- This button is for iOS only.  It will be hidden on Android. -->
-            <Button Clicked="OnGenerateClicked"
-                    Text="+">
-                <Button.IsVisible>
-                    <OnPlatform x:TypeArguments="x:Boolean">
-                        <OnPlatform.iOS>True</OnPlatform.iOS>
-                        <OnPlatform.Android>False</OnPlatform.Android>
-                    </OnPlatform>
-                </Button.IsVisible>
-            </Button>
+        <ListView x:Name="MainList"
+                  Grid.Row="2"
+                  ItemsSource="{Binding Results}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Padding="5"
+                                         VerticalOptions="FillAndExpand">
+                                <Label Text="{Binding .}"
+                                       TextColor="{StaticResource TextColor}"
+                                       FontSize="16"
+                                       FontAttributes="None"
+                                       LineBreakMode="WordWrap"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-            <ListView x:Name="MainList"
-                      ItemsSource="{Binding Results}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout Padding="5">
-                                    <Label Text="{Binding .}"
-                                           TextColor="{StaticResource TextColor}"
-                                           FontSize="16"
-                                           FontAttributes="None"
-                                           LineBreakMode="WordWrap"/>
-                                </StackLayout>
-                            </ViewCell.View>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
 
-        </StackLayout>
+        <!-- This button is for iOS only.  It will be hidden on Android. -->
+        <Button Grid.Row="2"
+                Clicked="OnGenerateClicked"
+                HorizontalOptions="End"
+                Text="+">
+            <Button.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean">
+                    <OnPlatform.iOS>True</OnPlatform.iOS>
+                    <OnPlatform.Android>False</OnPlatform.Android>
+                </OnPlatform>
+            </Button.IsVisible>
+        </Button>
 
         <!-- This custom button control is for Android only. It will be hidden on 
              iOS because the iOS project does not have a Custom Renderer to draw it. -->
         <!-- x,y position is proportional, but size is absolute. The AutoSize will 
              allow the control size itself to whatever size it needs. -->
-        <local:FloatingActionButtonView AbsoluteLayout.LayoutBounds="1,1,AutoSize,AutoSize"
-                                        AbsoluteLayout.LayoutFlags="PositionProportional"
+        <local:FloatingActionButtonView Grid.Row="2"
                                         ColorNormal="#ff3498db"
                                         ColorPressed="Black"
                                         ColorRipple="#ff3498db"
                                         Command="{Binding FabExecuteCommand}"
                                         HasShadow="True"
+                                        HorizontalOptions="End"
                                         ImageName="ic_add.png"
-                                        ParentList="{Binding Source={x:Reference MainList}, Path=.}" />
-    </AbsoluteLayout>
+                                        ParentList="{Binding Source={x:Reference MainList}, Path=.}"
+                                        VerticalOptions="End"/>
+    </Grid>
 
 </ContentPage>
