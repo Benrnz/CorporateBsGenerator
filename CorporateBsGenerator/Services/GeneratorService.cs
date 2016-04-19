@@ -53,7 +53,7 @@ namespace CorporateBsGenerator.Services
             "turnkey", "ubiquitous", "unique", "user-centric", "user friendly", "value-added", "vertical", "viral", "virtual",
             "visionary", "web-enabled", "wireless", "world-class", "worldwide", "fungible", "cloud-ready", "elastic", "hyper-scale",
             "on-demand", "cloud-based", "cloud-centric", "cloudified", "aggresive", "disruptive", "hyper-cadence", "loosely coupled",
-            "dilated", "quantum"
+            "dilated", "quantum", "bits-and-mortar"
 
             };
 
@@ -70,7 +70,7 @@ namespace CorporateBsGenerator.Services
             "quality vectors", "relationships", "resources", "results", "ROI", "scenarios", "schemas", "services", "solutions",
             "sources", "strategic theme areas", "supply chains", "synergy", "systems", "advanced machine learning", "technology",
             "testing procedures", "total linkage", "users", "deep learning", "vortals", "web-readiness", "web services", "fungibility",
-            "clouds", "NoSql", "storage", "virtualisation", "Dev-Ops", "hyper-continuous delivery", "Scaled Agile Frameworks", "exacting technical readiness",
+            "clouds", "NoSql", "storage", "virtualisation", "Dev-Ops", "Dev-UX", "hyper-continuous delivery", "Scaled Agile Frameworks", "exacting technical readiness",
             "architecture", "slushy architecture", "gelatinous architectures", "micro-services", "lambda PaaS", "network interfaces", "deep webs", 
             "dark web exploitation", "gamification", "harnessed chaos theories", "wearable computing", "Big Data", "Data Ponds", 
             "Internet of Things", "hyper-convergence", "technological fashion", "Data Privacy", "Device Mash-ups", "v.Next JavaScript fashionables",
@@ -88,7 +88,11 @@ namespace CorporateBsGenerator.Services
             var verb = Verbs.ElementAt(RandomGenerator.Next(0, Verbs.Count - 1));
             var adjective = Adjectives.ElementAt(RandomGenerator.Next(0, Adjectives.Count - 1));
             var noun = Nouns.ElementAt(RandomGenerator.Next(0, Nouns.Count - 1));
-            return $"{adverb} {verb} {adjective} {noun}";
+            var sentence = $"{adverb} {verb} {adjective} {noun}";
+            var firstLetter = sentence.ToCharArray(0, 1);
+            var theRest = sentence.ToCharArray(1, sentence.Length - 1);
+            firstLetter[0] = char.ToUpper(firstLetter[0]);
+            return $"{new string(firstLetter)}{new string(theRest)}.";
         }
     }
 }
