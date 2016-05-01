@@ -61,7 +61,6 @@ namespace CorporateBsGenerator.Droid
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_reverseLayout = global::CorporateBsGenerator.Droid.Resource.Styleable.RecyclerView_reverseLayout;
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_spanCount = global::CorporateBsGenerator.Droid.Resource.Styleable.RecyclerView_spanCount;
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_stackFromEnd = global::CorporateBsGenerator.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::CorporateBsGenerator.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation
