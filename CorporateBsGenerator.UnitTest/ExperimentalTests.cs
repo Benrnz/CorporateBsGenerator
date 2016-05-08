@@ -16,5 +16,11 @@ namespace CorporateBsGenerator.UnitTest
         {
             Assert.AreEqual(5, 2 + 2);
         }
+
+        [Test]
+        public void Test3()
+        {
+            Assert.Inconclusive();
+        }
     }
 }
