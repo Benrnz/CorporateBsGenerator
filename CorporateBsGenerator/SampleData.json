@@ -1,7 +1,7 @@
 ﻿{
   "MainPage.xaml" : 
     {
-      "Instructions": "Touch '+' to catapult your career into the stratosphere!",
+      "Instructions": "Tap '+' to catapult your career into the stratosphere!",
       "Results": [
         "Test Data 123",
         "Test Data 345", 

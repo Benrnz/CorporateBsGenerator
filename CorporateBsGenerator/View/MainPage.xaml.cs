@@ -25,7 +25,7 @@ namespace CorporateBsGenerator.View
             }
         }
 
-        public string Instructions => "Touch + to catapult your career into the stratosphere!";
+        public string Instructions => "Tap + to catapult your career into the stratosphere!";
 
         public ObservableCollection<string> Results { get; set; } = new ObservableCollection<string>();
 
