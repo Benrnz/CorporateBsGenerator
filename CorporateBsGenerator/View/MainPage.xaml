@@ -5,7 +5,7 @@
              BackgroundColor="Silver">
 
     <!-- Takes up the whole screen and we're going to position controls using a table -->
-    <Grid>
+    <Grid Padding="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <!-- Heading Row -->
@@ -31,8 +31,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Padding="5"
-                                         VerticalOptions="FillAndExpand">
+                            <StackLayout VerticalOptions="FillAndExpand">
                                 <Label Text="{Binding .}"
                                        TextColor="{StaticResource TextColor}"
                                        FontSize="16"
