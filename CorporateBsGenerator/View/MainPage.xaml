@@ -1,8 +1,8 @@
-<ContentPage 
-    x:Class="CorporateBsGenerator.View.MainPage" 
-    xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+<ContentPage
+    x:Class="CorporateBsGenerator.View.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BackgroundColor="Silver">
     <!-- Takes up the whole screen and we're going to position controls using a table -->
 
@@ -15,28 +15,32 @@
             <RowDefinition Height="*" />
             <!-- Main List and buttons -->
         </Grid.RowDefinitions>
-        <Label 
-            Grid.Row="0" 
-            HeightRequest="40" 
-            Style="{StaticResource Style.LabelHeading}" 
+        <Label
+            Grid.Row="0"
+            HeightRequest="40"
+            Style="{StaticResource Style.LabelHeading}"
             Text="Corporate BS Generator" />
-        <Button 
-            x:Name="ResetButton" 
-            Clicked="OnResetButtonClicked" 
-            Grid.Row="0" 
-            HeightRequest="40" 
-            HorizontalOptions="End" 
-            IsVisible="False" 
-            Text="X" 
-            WidthRequest="40" />
-        <Label 
-            x:Name="LabelInstructions" 
-            Grid.Row="1" 
-            Style="{StaticResource Style.LabelInstruction}" 
+        <Image x:Name="ResetButton"
+               Source="Trash.png"
+               HorizontalOptions="End"
+               Grid.Row="0"
+               Aspect="Fill"
+               WidthRequest="30"
+               IsVisible="False">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                        Tapped="OnResetButtonClicked"
+                        NumberOfTapsRequired="1" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label
+            x:Name="LabelInstructions"
+            Grid.Row="1"
+            Style="{StaticResource Style.LabelInstruction}"
             Text="{Binding Instructions}" />
-        <ListView 
-            x:Name="MainList" 
-            Grid.Row="2" 
+        <ListView
+            x:Name="MainList"
+            Grid.Row="2"
             ItemsSource="{Binding Results}">
             <ListView.ItemTemplate>
 
@@ -44,11 +48,11 @@
                     <ViewCell>
                         <ViewCell.View>
                             <StackLayout VerticalOptions="FillAndExpand">
-                                <Label 
-                                    FontAttributes="None" 
-                                    FontSize="16" 
-                                    LineBreakMode="WordWrap" 
-                                    Text="{Binding .}" 
+                                <Label
+                                    FontAttributes="None"
+                                    FontSize="16"
+                                    LineBreakMode="WordWrap"
+                                    Text="{Binding .}"
                                     TextColor="{StaticResource TextColor}" />
                             </StackLayout>
                         </ViewCell.View>
@@ -57,10 +61,10 @@
             </ListView.ItemTemplate>
         </ListView>
         <!-- This button is for iOS only.  It will be hidden on Android. -->
-        <Button 
-            Clicked="OnGenerateClicked" 
-            Grid.Row="2" 
-            HorizontalOptions="End" 
+        <Button
+            Clicked="OnGenerateClicked"
+            Grid.Row="2"
+            HorizontalOptions="End"
             Text="+">
             <Button.IsVisible>
                 <OnPlatform x:TypeArguments="x:Boolean">
@@ -77,17 +81,17 @@
              iOS because the iOS project does not have a Custom Renderer to draw it. -->
         <!-- x,y position is proportional, but size is absolute. The AutoSize will 
              allow the control size itself to whatever size it needs. -->
-        <local:FloatingActionButtonView 
-            x:Name="FabButton" 
-            ColorNormal="#ff3498db" 
-            ColorPressed="Black" 
-            ColorRipple="#ff3498db" 
-            Command="{Binding FabExecuteCommand}" 
-            Grid.Row="2" 
-            HasShadow="True" 
-            HorizontalOptions="End" 
-            ImageName="ic_add.png" 
-            ParentList="{Binding Source={x:Reference MainList}, Path=.}" 
+        <local:FloatingActionButtonView
+            x:Name="FabButton"
+            ColorNormal="#ff3498db"
+            ColorPressed="Black"
+            ColorRipple="#ff3498db"
+            Command="{Binding FabExecuteCommand}"
+            Grid.Row="2"
+            HasShadow="True"
+            HorizontalOptions="End"
+            ImageName="ic_add.png"
+            ParentList="{Binding Source={x:Reference MainList}, Path=.}"
             VerticalOptions="End" />
     </Grid>
 
