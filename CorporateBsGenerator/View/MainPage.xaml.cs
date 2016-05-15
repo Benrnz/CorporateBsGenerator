@@ -5,24 +5,21 @@ using Xamarin.Forms;
 
 namespace CorporateBsGenerator.View
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage
     {
         private readonly GeneratorService _service = new GeneratorService();
 
-		public MainPage()
+        public MainPage()
         {
-            InitializeComponent();  // Initialise Xamarin.Forms required in every page's code behind.
+            InitializeComponent(); // Initialise Xamarin.Forms required in every page's code behind.
 
-            BindingContext = this;  // Bind to itself. All properties refered to in Bindings will come from here.
+            BindingContext = this; // Bind to itself. All properties refered to in Bindings will come from here.
             Title = "Corporate BS Generator"; // App Title (As seen in App Switcher)
         }
 
         public Command FabExecuteCommand
         {
-            get
-            {
-                return new Command(() => OnGenerateClicked(this, EventArgs.Empty));
-            }
+            get { return new Command(() => OnGenerateClicked(this, EventArgs.Empty)); }
         }
 
         public string Instructions => "Tap + to catapult your career into the stratosphere!";
@@ -35,6 +32,14 @@ namespace CorporateBsGenerator.View
 
             var statement = _service.Generate();
             Results.Add(statement);
+            ResetButton.IsVisible = true;
+        }
+
+        private void OnResetButtonClicked(object sender, EventArgs e)
+        {
+            Results.Clear();
+            ResetButton.IsVisible = false;
+            if (Device.OS == TargetPlatform.Android) FabButton.Show();
         }
     }
 }

@@ -4,10 +4,10 @@ using Xamarin.Forms.Xaml;
 // Information about this assembly is defined by the following attributes.
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle ("CorporateBsGenerator")]
-[assembly: AssemblyDescription ("")]
+[assembly: AssemblyTitle ("Corporate BS Generator")]
+[assembly: AssemblyDescription ("An experimental project to explore some basic Xamarin Forms concepts.")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("")]
+[assembly: AssemblyCompany ("Rees.biz")]
 [assembly: AssemblyProduct ("")]
 [assembly: AssemblyCopyright ("rees.biz")]
 [assembly: AssemblyTrademark ("")]
