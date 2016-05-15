@@ -8,24 +8,23 @@
 
     <Grid Padding="5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="40" />
             <!-- Heading Row -->
             <RowDefinition Height="Auto" />
             <!-- Instructions Caption -->
             <RowDefinition Height="*" />
             <!-- Main List and buttons -->
         </Grid.RowDefinitions>
-        <Label
-            Grid.Row="0"
-            HeightRequest="40"
-            Style="{StaticResource Style.LabelHeading}"
+        <Label Style="{StaticResource Style.LabelHeading}"
             Text="Corporate BS Generator" />
+
         <Image x:Name="ResetButton"
                Source="Trash.png"
                HorizontalOptions="End"
-               Grid.Row="0"
+               VerticalOptions="Start"
                Aspect="Fill"
-               WidthRequest="30"
+               HeightRequest="30"
+               WidthRequest="25"
                IsVisible="False">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer
