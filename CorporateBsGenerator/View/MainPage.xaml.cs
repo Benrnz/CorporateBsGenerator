@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using CorporateBsGenerator.Services;
 using Xamarin.Forms;
 
@@ -7,7 +8,9 @@ namespace CorporateBsGenerator.View
 {
     public partial class MainPage
     {
-        private readonly GeneratorService _service = new GeneratorService();
+        private readonly GeneratorService service = new GeneratorService();
+
+        private Task timerTask;
 
         public MainPage()
         {
@@ -30,7 +33,7 @@ namespace CorporateBsGenerator.View
         {
             LabelInstructions.IsVisible = false;
 
-            var statement = _service.Generate();
+            var statement = service.Generate();
             Results.Add(statement);
             ResetButton.IsVisible = true;
         }
