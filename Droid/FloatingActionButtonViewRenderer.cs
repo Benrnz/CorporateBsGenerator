@@ -14,7 +14,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Path = System.IO.Path;
 
-[assembly: ExportRenderer(typeof (FloatingActionButtonView), typeof (FloatingActionButtonViewRenderer))]
+[assembly: ExportRenderer(typeof(FloatingActionButtonView), typeof(FloatingActionButtonViewRenderer))]
 
 namespace CorporateBsGenerator.Droid
 {
@@ -23,10 +23,10 @@ namespace CorporateBsGenerator.Droid
         private const int MARGIN_DIPS = 16;
         private const int FAB_HEIGHT_NORMAL = 56;
         private const int FAB_HEIGHT_MINI = 40;
-        private const int FAB_FRAME_HEIGHT_WITH_PADDING = MARGIN_DIPS*2 + FAB_HEIGHT_NORMAL;
-        private const int FAB_FRAME_WIDTH_WITH_PADDING = MARGIN_DIPS*2 + FAB_HEIGHT_NORMAL;
-        private const int FAB_MINI_FRAME_HEIGHT_WITH_PADDING = MARGIN_DIPS*2 + FAB_HEIGHT_MINI;
-        private const int FAB_MINI_FRAME_WIDTH_WITH_PADDING = MARGIN_DIPS*2 + FAB_HEIGHT_MINI;
+        private const int FAB_FRAME_HEIGHT_WITH_PADDING = MARGIN_DIPS * 2 + FAB_HEIGHT_NORMAL;
+        private const int FAB_FRAME_WIDTH_WITH_PADDING = MARGIN_DIPS * 2 + FAB_HEIGHT_NORMAL;
+        private const int FAB_MINI_FRAME_HEIGHT_WITH_PADDING = MARGIN_DIPS * 2 + FAB_HEIGHT_MINI;
+        private const int FAB_MINI_FRAME_WIDTH_WITH_PADDING = MARGIN_DIPS * 2 + FAB_HEIGHT_MINI;
         private readonly Context context;
         private readonly FloatingActionButton fab;
         private int appearingListItemIndex = 0;
@@ -36,7 +36,7 @@ namespace CorporateBsGenerator.Droid
             context = Forms.Context;
 
             var d = context.Resources.DisplayMetrics.Density;
-            var margin = (int) (MARGIN_DIPS*d); // margin in pixels
+            var margin = (int)(MARGIN_DIPS * d); // margin in pixels
 
             fab = new FloatingActionButton(context);
             var lp = new FrameLayout.LayoutParams(LayoutParams.WrapContent, LayoutParams.WrapContent);
@@ -96,52 +96,44 @@ namespace CorporateBsGenerator.Droid
             SetNativeControl(frame);
         }
 
-        private async void OnListItemDisappearing(object sender, ItemVisibilityEventArgs e)
+        private void OnListItemDisappearing(object sender, ItemVisibilityEventArgs e)
         {
             // Experimental - proper hiding and showing of the FAB is dependent on the objects in the list being unique.
             var list = sender as Xamarin.Forms.ListView;
-            if (list == null) return;
-            await Task.Run(() =>
+            var items = list?.ItemsSource as IList;
+            if (items != null)
             {
-                var items = list.ItemsSource as IList;
-                if (items != null)
+                var index = items.IndexOf(e.Item);
+                if (index < appearingListItemIndex && index != 0)
                 {
-                    var index = items.IndexOf(e.Item);
-                    if (index < appearingListItemIndex && index != 0)
-                    {
-                        appearingListItemIndex = index;
-                        Device.BeginInvokeOnMainThread(() => fab.Hide());
-                    }
-                    else
-                    {
-                        appearingListItemIndex = index;
-                    }
+                    appearingListItemIndex = index;
+                    fab.Hide();
                 }
-            });
+                else
+                {
+                    appearingListItemIndex = index;
+                }
+            }
         }
 
-        private async void OnListItemAppearing(object sender, ItemVisibilityEventArgs e)
+        private void OnListItemAppearing(object sender, ItemVisibilityEventArgs e)
         {
             // Experimental - proper hiding and showing of the FAB is dependent on the objects in the list being unique.
             var list = sender as Xamarin.Forms.ListView;
-            if (list == null) return;
-            await Task.Run(() =>
+            var items = list?.ItemsSource as IList;
+            if (items != null)
             {
-                var items = list.ItemsSource as IList;
-                if (items != null)
+                var index = items.IndexOf(e.Item);
+                if (index < appearingListItemIndex)
                 {
-                    var index = items.IndexOf(e.Item);
-                    if (index < appearingListItemIndex)
-                    {
-                        appearingListItemIndex = index;
-                        Device.BeginInvokeOnMainThread(() => fab.Show());
-                    }
-                    else
-                    {
-                        appearingListItemIndex = index;
-                    }
+                    appearingListItemIndex = index;
+                    fab.Show();
                 }
-            });
+                else
+                {
+                    appearingListItemIndex = index;
+                }
+            }
         }
 
         public void Show(bool animate = true)
