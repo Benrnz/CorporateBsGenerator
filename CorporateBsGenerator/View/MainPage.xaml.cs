@@ -10,8 +10,6 @@ namespace CorporateBsGenerator.View
     {
         private readonly GeneratorService service = new GeneratorService();
 
-        private Task timerTask;
-
         public MainPage()
         {
             InitializeComponent(); // Initialise Xamarin.Forms required in every page's code behind.
