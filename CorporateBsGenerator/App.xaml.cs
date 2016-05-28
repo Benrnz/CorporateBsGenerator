@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using CorporateBsGenerator.Main;
+using Xamarin.Forms;
 using MainPage = CorporateBsGenerator.Main.MainPage;
 
 namespace CorporateBsGenerator
@@ -10,7 +11,7 @@ namespace CorporateBsGenerator
 			InitializeComponent ();
 
 			// The root page of your application
-            MainPage = new MainPage();
+            MainPage = new MainPage { BindingContext = new MainViewModel() };
 		}
 
 		protected override void OnStart ()
