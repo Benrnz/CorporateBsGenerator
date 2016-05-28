@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CorporateBsGenerator.Main;assembly=CorporateBsGenerator"
+             x:Class="CorporateBsGenerator.Main.Shell"
+             Title="Corporate BS"
+                  Icon="{x:Null}">
+
+    <MasterDetailPage.Master>
+        <local:MenuPage x:Name="MenuPage"/>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <local:MainPage>
+                    <local:MainPage.BindingContext>
+                        <local:MainViewModel/>
+                    </local:MainPage.BindingContext>
+                </local:MainPage>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
