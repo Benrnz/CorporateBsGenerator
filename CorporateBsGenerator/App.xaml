@@ -5,7 +5,7 @@
   
   <Application.Resources>
     <ResourceDictionary>
-      
+        
       <Color x:Key="BackgroundColor">#33302E</Color>
       <Color x:Key="TextColor">Black</Color>
       <Color x:Key="HeadingColor">Green</Color>

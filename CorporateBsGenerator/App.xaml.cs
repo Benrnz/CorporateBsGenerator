@@ -1,5 +1,5 @@
-﻿using CorporateBsGenerator.View;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using MainPage = CorporateBsGenerator.Main.MainPage;
 
 namespace CorporateBsGenerator
 {
