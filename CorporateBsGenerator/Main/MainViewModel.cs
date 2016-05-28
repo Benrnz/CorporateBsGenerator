@@ -23,15 +23,16 @@ namespace CorporateBsGenerator.Main
             this.service = new GeneratorService();
         }
 
-        public ICommand GenerateCommand => new Command(GenerateCommandExecute);
+        public event EventHandler Resetting;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand ResetCommand => new Command(ResetCommandExecute);
+        public ICommand GenerateCommand => new Command(GenerateCommandExecute);
 
         public string Instructions => "Touch + to catapult your career into the stratosphere!";
 
-        public ObservableCollection<string> Results { get; set; } = new ObservableCollection<string>();
+        public ICommand ResetCommand => new Command(ResetCommandExecute);
 
-        public string Title => "Corporate BS Generator"; // App Title (As seen in App Switcher)
+        public ObservableCollection<string> Results { get; set; } = new ObservableCollection<string>();
 
         public bool ShowInstructions
         {
@@ -55,6 +56,14 @@ namespace CorporateBsGenerator.Main
             }
         }
 
+        public string Title => "Corporate BS Generator"; // App Title (As seen in App Switcher)
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         private void GenerateCommandExecute()
         {
             ShowInstructions = false;
@@ -68,16 +77,7 @@ namespace CorporateBsGenerator.Main
         {
             Results.Clear();
             ShowResetButton = false;
-            // TODO
-            // if (Device.OS == TargetPlatform.Android) this.FabButton.Show();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            Resetting?.Invoke(this, EventArgs.Empty);
         }
     }
 }

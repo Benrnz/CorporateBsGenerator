@@ -81,6 +81,7 @@
         <!-- x,y position is proportional, but size is absolute. The AutoSize will 
              allow the control size itself to whatever size it needs. -->
         <local:FloatingActionButtonView 
+            x:Name="FabButton"
             ColorNormal="#ff3498db" 
             ColorPressed="Black" 
             ColorRipple="#ff3498db" 
