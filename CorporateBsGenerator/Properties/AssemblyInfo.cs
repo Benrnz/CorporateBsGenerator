@@ -1,10 +1,11 @@
 ﻿using System.Reflection;
+using CorporateBsGenerator;
 using Xamarin.Forms.Xaml;
 
 // Information about this assembly is defined by the following attributes.
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle ("Corporate BS Generator")]
+[assembly: AssemblyTitle (App.AppName)]
 [assembly: AssemblyDescription ("An experimental project to explore some basic Xamarin Forms concepts.")]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Rees.biz")]

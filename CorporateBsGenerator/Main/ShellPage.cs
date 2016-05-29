@@ -14,7 +14,7 @@ namespace CorporateBsGenerator.Main
             Master = new MenuPage(this);
             BindingContext = new BaseViewModel
             {
-                Title = "Corporate BS Generator",
+                Title = App.AppName,
                 Icon = "slideout.png"
             };
 

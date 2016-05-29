@@ -5,11 +5,18 @@ namespace CorporateBsGenerator.Droid
 {
     public class DroidDeviceLogger : IDeviceLogger
     {
+        private readonly string appName;
+
+        public DroidDeviceLogger(string appName)
+        {
+            this.appName = appName;
+        }
+
         public void LogInfo(string tag, string message)
         {
 #if (APPSTORE)
 #else
-            Log.Info(tag, message);
+            Log.Info($"{this.appName}.{tag}", message);
 #endif
         }
 
@@ -17,7 +24,7 @@ namespace CorporateBsGenerator.Droid
         {
 #if (APPSTORE)
 #else
-            Log.Warn(tag, message);
+            Log.Warn($"{this.appName}.{tag}", message);
 #endif
         }
 
@@ -25,7 +32,7 @@ namespace CorporateBsGenerator.Droid
         {
 #if (APPSTORE)
 #else
-            Log.Error(tag, message);
+            Log.Error($"{this.appName}.{tag}", message);
 #endif
         }
 
@@ -33,7 +40,7 @@ namespace CorporateBsGenerator.Droid
         {
 #if (APPSTORE)
 #else
-            Log.Error(tag, $"{message}\n Exception: {ex}");
+            Log.Error($"{this.appName}.{tag}", $"{message}\n Exception: {ex}");
 #endif
         }
     }

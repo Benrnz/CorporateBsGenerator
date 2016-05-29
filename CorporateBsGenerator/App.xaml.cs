@@ -5,6 +5,8 @@ namespace CorporateBsGenerator
 {
     public partial class App : Application
     {
+        public const string AppName = "Corporate BS Generator";
+
         public App()
         {
             InitializeComponent();
@@ -12,9 +14,9 @@ namespace CorporateBsGenerator
             MainPage = new ShellPage();
         }
 
-        public static IDeviceLogger Logger { get; set; }
-
         public static bool IsWindows10 { get; set; }
+
+        public static IDeviceLogger Logger { get; set; }
 
         protected override void OnResume()
         {

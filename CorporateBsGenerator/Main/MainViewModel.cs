@@ -20,7 +20,7 @@ namespace CorporateBsGenerator.Main
             ShowInstructions = true;
             ShowResetButton = false;
             this.service = new GeneratorService();
-            Title = "Corporate BS Generator";
+            Title = App.AppName;
         }
 
         public event EventHandler Resetting;

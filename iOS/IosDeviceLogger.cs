@@ -4,11 +4,18 @@ namespace CorporateBsGenerator.iOS
 {
     public class IosDeviceLogger : IDeviceLogger
     {
+        private readonly string appName;
+
+        public IosDeviceLogger(string appName)
+        {
+            this.appName = appName;
+        }
+
         public void LogInfo(string tag, string message)
         {
 #if (APPSTORE)
 #else
-            Console.WriteLine($"INFO {DateTime.UtcNow}, {tag}, {message}");
+            Console.WriteLine($"INFO {DateTime.UtcNow}, {this.appName}.{tag}, {message}");
 #endif
         }
 
@@ -16,7 +23,7 @@ namespace CorporateBsGenerator.iOS
         {
 #if (APPSTORE)
 #else
-            Console.WriteLine($"WARN {DateTime.UtcNow}, {tag}, {message}");
+            Console.WriteLine($"WARN {DateTime.UtcNow}, {this.appName}.{tag}, {message}");
 #endif
         }
 
@@ -24,7 +31,7 @@ namespace CorporateBsGenerator.iOS
         {
 #if (APPSTORE)
 #else
-            Console.WriteLine($"ERROR {DateTime.UtcNow}, {tag}, {message}");
+            Console.WriteLine($"ERROR {DateTime.UtcNow}, {this.appName}.{tag}, {message}");
 #endif
         }
 
@@ -32,7 +39,7 @@ namespace CorporateBsGenerator.iOS
         {
 #if (APPSTORE)
 #else
-            Console.WriteLine($"ERROR {DateTime.UtcNow}, {tag}, {message}, {ex}");
+            Console.WriteLine($"ERROR {DateTime.UtcNow}, {this.appName}.{tag}, {message}, {ex}");
 #endif
         }
     }

@@ -8,7 +8,7 @@ using Xamarin.Forms.Platform.Android;
 namespace CorporateBsGenerator.Droid
 {
 	[Activity(
-        Label = "Corporate BS Generator", 
+        Label = App.AppName, 
         Icon = "@drawable/ic_launcher", 
         MainLauncher = true, 
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -18,8 +18,7 @@ namespace CorporateBsGenerator.Droid
 		{
             FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
             FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
-            App.Logger = new DroidDeviceLogger();
-
+            
             base.OnCreate (bundle);
 
 			Forms.Init (this, bundle);
