@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using CorporateBsGenerator.Annotations;
 using CorporateBsGenerator.Services;
 using Xamarin.Forms;
 
 namespace CorporateBsGenerator.Main
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : BaseViewModel
     {
+        public const string FeatureName = "Generator";
+
         private readonly GeneratorService service;
         private bool doNotUseShowInstructions;
         private bool doNotUseShowResetButton;
@@ -21,10 +20,10 @@ namespace CorporateBsGenerator.Main
             ShowInstructions = true;
             ShowResetButton = false;
             this.service = new GeneratorService();
+            Title = "Corporate BS Generator";
         }
 
         public event EventHandler Resetting;
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand GenerateCommand => new Command(GenerateCommandExecute);
 
@@ -37,31 +36,13 @@ namespace CorporateBsGenerator.Main
         public bool ShowInstructions
         {
             get { return this.doNotUseShowInstructions; }
-            set
-            {
-                if (value == this.doNotUseShowInstructions) return;
-                this.doNotUseShowInstructions = value;
-                OnPropertyChanged();
-            }
+            set { SetProperty(ref this.doNotUseShowInstructions, value); }
         }
 
         public bool ShowResetButton
         {
             get { return this.doNotUseShowResetButton; }
-            set
-            {
-                if (value == this.doNotUseShowResetButton) return;
-                this.doNotUseShowResetButton = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string Title => "Corporate BS Generator"; // App Title (As seen in App Switcher)
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            set { SetProperty(ref this.doNotUseShowResetButton, value); }
         }
 
         private void GenerateCommandExecute()

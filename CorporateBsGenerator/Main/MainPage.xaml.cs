@@ -5,28 +5,18 @@ namespace CorporateBsGenerator.Main
 {
     public partial class MainPage
     {
-        private MainViewModel viewModel;
-
         public MainPage()
         {
             InitializeComponent(); // Initialise Xamarin.Forms required in every page's code behind.
-        }
-
-        protected override void OnBindingContextChanged()
-        {
-            base.OnBindingContextChanged();
-            if (BindingContext == null)
-            {
-                if (this.viewModel != null) this.viewModel.Resetting -= OnResetting;
-                return;
-            }
-
-            this.viewModel = (MainViewModel) BindingContext;
-            this.viewModel.Resetting += OnResetting;
+            App.Logger.LogInfo(MainViewModel.FeatureName, "MainPage created");
         }
 
         private void OnResetting(object sender, EventArgs e)
         {
+            // TODO better solution needed here. Messaging probably.
+            var vm = BindingContext as MainViewModel;
+            if (vm == null) return;
+
             if (Device.OS == TargetPlatform.Android) this.FabButton.Show();
         }
     }

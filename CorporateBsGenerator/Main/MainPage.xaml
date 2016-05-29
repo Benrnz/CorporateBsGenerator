@@ -3,21 +3,16 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    BackgroundColor="Silver">
+    BackgroundColor="Silver"
+    Title="{Binding Title}">
     <!-- Takes up the whole screen and we're going to position controls using a table -->
 
     <Grid Padding="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
-            <!-- Heading Row -->
-            <RowDefinition Height="Auto" />
-            <!-- Instructions Caption -->
             <RowDefinition Height="*" />
-            <!-- Main List and buttons -->
         </Grid.RowDefinitions>
-        <Label 
-            Style="{StaticResource Style.LabelHeading}" 
-            Text="Corporate BS Generator" />
+
         <Image 
             Aspect="Fill" 
             HeightRequest="30" 
@@ -32,15 +27,18 @@
                     NumberOfTapsRequired="1" />
             </Image.GestureRecognizers>
         </Image>
+        
         <Label 
-            Grid.Row="1" 
+            Grid.Row="0" 
             IsVisible="{Binding ShowInstructions}" 
             Style="{StaticResource Style.LabelInstruction}" 
             Text="{Binding Instructions}" />
+        
         <ListView 
             x:Name="MainList" 
-            Grid.Row="2" 
-            ItemsSource="{Binding Results}">
+            Grid.Row="1" 
+            ItemsSource="{Binding Results}"
+            VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
 
                 <DataTemplate>
@@ -62,8 +60,9 @@
         <!-- This button is for iOS only.  It will be hidden on Android. -->
         <Button 
             Command="{Binding GenerateCommand}" 
-            Grid.Row="2" 
+            Grid.Row="0" 
             HorizontalOptions="End" 
+            Margin="0,0,30,0"
             Text="+">
             <Button.IsVisible>
                 <OnPlatform x:TypeArguments="x:Boolean">
@@ -86,7 +85,7 @@
             ColorPressed="Black" 
             ColorRipple="#ff3498db" 
             Command="{Binding GenerateCommand}" 
-            Grid.Row="2" 
+            Grid.Row="1" 
             HasShadow="True" 
             HorizontalOptions="End" 
             ImageName="ic_add.png" 
