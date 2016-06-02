@@ -5,7 +5,7 @@ namespace CorporateBsGenerator
 {
     public partial class App : Application
     {
-        public const string AppName = "Corporate BS Generator";
+        public const string AppName = "Corporate BS";
 
         public App()
         {
