@@ -20,7 +20,7 @@ namespace CorporateBsGenerator.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            App.Logger = new IosDeviceLogger();
+            App.Logger = new IosDeviceLogger(App.AppName);
             Forms.Init();
             ImageCircleRenderer.Init();
             LoadApplication(new App());
