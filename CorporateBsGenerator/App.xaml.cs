@@ -6,6 +6,7 @@ namespace CorporateBsGenerator
     public partial class App : Application
     {
         public const string AppName = "Corporate BS";
+        private const string LogTag = "CorporateBS.App";
 
         public App()
         {
@@ -21,16 +22,19 @@ namespace CorporateBsGenerator
         protected override void OnResume()
         {
             // Handle when your app resumes
+            Logger.LogInfo(LogTag, "On Resume");
         }
 
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            Logger.LogInfo(LogTag, "On Sleep");
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
+            Logger.LogInfo(LogTag, "On Start");
         }
     }
 }
