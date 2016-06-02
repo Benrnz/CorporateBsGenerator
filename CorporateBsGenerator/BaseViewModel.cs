@@ -6,6 +6,9 @@ using CorporateBsGenerator.Annotations;
 
 namespace CorporateBsGenerator
 {
+    /// <summary>
+    /// A base view model class for all view models to inherit from.  Provides common properties required on most pages.
+    /// </summary>
     public class BaseViewModel : INotifyPropertyChanged
     {
         private string doNotUseIcon;
@@ -16,6 +19,9 @@ namespace CorporateBsGenerator
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Gets or sets a string value for a path to an image resource.
+        /// </summary>
         public string Icon
         {
             get { return this.doNotUseIcon; }
@@ -45,12 +51,9 @@ namespace CorporateBsGenerator
             private set { SetProperty(ref this.doNotUseIsNotBusy, value); }
         }
 
-        public string Subtitle
-        {
-            get { return this.doNotUseSubtitle; }
-            set { SetProperty(ref this.doNotUseSubtitle, value); }
-        }
-
+        /// <summary>
+        /// Gets or sets the title for the page.  Will show in the menu. 
+        /// </summary>
         public string Title
         {
             get { return this.doNotUseTitle; }

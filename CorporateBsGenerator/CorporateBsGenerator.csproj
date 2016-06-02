@@ -35,7 +35,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BaseModel.cs" />
     <Compile Include="FloatingActionButtonSize.cs" />
     <Compile Include="FloatingActionButtonView.cs" />
     <Compile Include="BaseViewModel.cs" />

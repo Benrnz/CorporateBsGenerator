@@ -15,11 +15,12 @@ namespace CorporateBsGenerator.Main
             BindingContext = new BaseViewModel
             {
                 Title = App.AppName,
-                Icon = "slideout.png"
+                Icon = "slideout.png" // An inbuilt icon
             };
 
             NavigateAsync(MenuType.Generator).Wait();
 
+            // ReSharper disable once VirtualMemberCallInContructor
             InvalidateMeasure();
         }
 
@@ -32,12 +33,11 @@ namespace CorporateBsGenerator.Main
                 switch (id)
                 {
                     case MenuType.About:
-                        // TODO need an about page
                         this.pages.Add(id, new MyNavigationPage(new ContentPage
                         {
                             BindingContext = new BaseViewModel { Title = "About" },
-                            Title = "About",
-                        } ));
+                            Title = "About"
+                        }));
                         break;
                     case MenuType.Generator:
                         this.pages.Add(id, new MyNavigationPage(new MainPage { BindingContext = new MainViewModel() }));
@@ -48,12 +48,6 @@ namespace CorporateBsGenerator.Main
             Page newPage = this.pages[id];
             if (newPage == null)
                 return;
-
-            //pop to root for Windows Phone
-            if (Detail != null && Device.OS == TargetPlatform.WinPhone)
-            {
-                await Detail.Navigation.PopToRootAsync();
-            }
 
             Detail = newPage;
 
