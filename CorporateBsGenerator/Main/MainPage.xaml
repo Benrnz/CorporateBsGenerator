@@ -38,19 +38,17 @@
             x:Name="MainList" 
             Grid.Row="1" 
             ItemsSource="{Binding Results}"
+            HasUnevenRows="True"
             VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
 
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout VerticalOptions="FillAndExpand">
-                                <Label 
-                                    FontAttributes="None" 
-                                    FontSize="16" 
-                                    LineBreakMode="WordWrap" 
-                                    Text="{Binding .}" 
-                                    TextColor="{StaticResource TextColor}" />
+                            <StackLayout Margin="0,5,0,5"
+                                VerticalOptions="FillAndExpand">
+                                <Label Style="{StaticResource Style.Paragraph}" 
+                                       Text="{Binding .}" />
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>
