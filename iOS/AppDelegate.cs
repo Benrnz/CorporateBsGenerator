@@ -1,5 +1,7 @@
 ﻿using Foundation;
+using ImageCircle.Forms.Plugin.iOS;
 using UIKit;
+using Xamarin.Forms;
 
 namespace CorporateBsGenerator.iOS
 {
@@ -18,7 +20,9 @@ namespace CorporateBsGenerator.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
+            App.Logger = new IosDeviceLogger(App.AppName);
+            Forms.Init();
+            ImageCircleRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
