@@ -53,6 +53,7 @@
     </Compile>
     <Compile Include="Main\MenuType.cs" />
     <Compile Include="Main\ShellPage.cs" />
+    <Compile Include="Main\ShellViewModel.cs" />
     <Compile Include="MyNavigationPage.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

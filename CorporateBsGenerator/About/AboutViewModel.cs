@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using CorporateBsGenerator.Annotations;
 using Xamarin.Forms;
 
 namespace CorporateBsGenerator.About
@@ -12,16 +13,10 @@ namespace CorporateBsGenerator.About
             Icon = "about.png";
         }
 
-        public ICommand LinkCommand
-        {
-            get
-            {
-                return new Command(OnLinkCommandExecute);
-            }
-        }
+        public ICommand LinkCommand => new Command(OnLinkCommandExecute);
 
+        [UsedImplicitly]
         public Uri WebSiteUri => new Uri("http://blog.rees.biz/p/corporate-bs-generator.html", UriKind.Absolute);
-
 
         private void OnLinkCommandExecute()
         {
