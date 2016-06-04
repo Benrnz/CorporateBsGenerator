@@ -43,10 +43,11 @@
                HorizontalOptions="Start"
                VerticalOptions="Start"
                Source="globe.png"/>
-        <Label Grid.Column="1"
+        <Label x:Name="WebLink" 
+               Grid.Column="1"
                Grid.Row="3" 
-               Text="http://blog.rees.biz"
-               Style="{StaticResource Style.LabelInstruction}"/>
+               Text="{Binding WebSiteUri.OriginalString}"
+               Style="{StaticResource Style.LabelInstruction}" />
         <Label Grid.Row="4" 
                Grid.ColumnSpan="2"
                Margin="0,50,0,0"
