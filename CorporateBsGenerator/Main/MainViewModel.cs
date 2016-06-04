@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using CorporateBsGenerator.Services;
+using CorporateBsGenerator.Service;
 using Xamarin.Forms;
 
 namespace CorporateBsGenerator.Main
