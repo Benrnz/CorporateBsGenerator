@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using CorporateBsGenerator.About;
 using Xamarin.Forms;
 
 namespace CorporateBsGenerator.Main
@@ -33,11 +34,7 @@ namespace CorporateBsGenerator.Main
                 switch (id)
                 {
                     case MenuType.About:
-                        this.pages.Add(id, new MyNavigationPage(new ContentPage
-                        {
-                            BindingContext = new BaseViewModel { Title = "About" },
-                            Title = "About"
-                        }));
+                        this.pages.Add(id, new MyNavigationPage(new AboutPage { BindingContext = new AboutViewModel() }));
                         break;
                     case MenuType.Generator:
                         this.pages.Add(id, new MyNavigationPage(new MainPage { BindingContext = new MainViewModel() }));

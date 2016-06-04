@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CorporateBsGenerator.About.AboutPage"
+             Title="{Binding Title}"
+             Icon="{Binding Icon}">
+    <StackLayout>
+        <Label Text="The Corporate BS Generator"
+               Style="{StaticResource Style.LabelHeading}"/>
+        <Label Text="Developed by Ben Rees"
+               Style="{StaticResource Style.LabelInstruction}"/>
+        <Label Text="http://blog.rees.biz"
+               Style="{StaticResource Style.LabelInstruction}"/>
+        <Label Text="This App was developed to explore and showcase the features of Xamarin.Forms."
+               Style="{StaticResource Style.Paragraph}"/>
+
+    </StackLayout>
+</ContentPage>
