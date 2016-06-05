@@ -24,11 +24,9 @@
                      HorizontalOptions="End"
                      VerticalOptions="Center">
             <Image
-                Aspect="Fill"
-                HeightRequest="40"
+                Style="{StaticResource Style.ImageButton}"
                 IsVisible="{Binding ShowResetButton}"
-                Source="Trash.png"
-                WidthRequest="32">
+                Source="Trash.png">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Command="{Binding ResetCommand}"
@@ -37,11 +35,8 @@
             </Image>
             <!-- This button is for iOS and Windows only.  It will be hidden on Android. -->
             <Image
-                BackgroundColor="#3498DB"
-                Aspect="Fill"
-                HeightRequest="40"
-                Source="ic_add.png"
-                WidthRequest="32">
+                Style="{StaticResource Style.ImageButton}"
+                Source="ic_add.png">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Command="{Binding GenerateCommand}"
@@ -61,28 +56,6 @@
                     </OnPlatform>
                 </Image.IsVisible>
             </Image>
-
-            <!--<Button
-                Command="{Binding GenerateCommand}"
-                FontSize="Medium"
-                FontAttributes="Bold"
-                HeightRequest="30"
-                WidthRequest="25"
-                Text="+">
-                <Button.IsVisible>
-                    <OnPlatform x:TypeArguments="x:Boolean">
-                        <OnPlatform.iOS>
-                            True
-                        </OnPlatform.iOS>
-                        <OnPlatform.Android>
-                            False
-                        </OnPlatform.Android>
-                        <OnPlatform.WinPhone>
-                            True
-                        </OnPlatform.WinPhone>
-                    </OnPlatform>
-                </Button.IsVisible>
-            </Button>-->
         </StackLayout>
 
         <ListView 
