@@ -16,7 +16,7 @@ namespace CorporateBsGenerator
         {
             InitializeComponent();
             // The root page of your application
-            Shell = new ShellViewModel();
+            Shell = new ShellViewModel(new MenuViewModel());
             var mainPage = new ShellPage { BindingContext = Shell };
             Shell.NavigateToDefaultPage();
             MainPage = mainPage;

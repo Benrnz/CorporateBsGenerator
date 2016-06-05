@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace CorporateBsGenerator.Main
 {
@@ -8,9 +9,6 @@ namespace CorporateBsGenerator.Main
         {
             Master = new MenuPage();
             App.Shell.Navigating += OnNavigating;
-            // ReSharper disable once VirtualMemberCallInContructor
-            InvalidateMeasure();
-            
         }
 
         private void OnNavigating(object sender, System.EventArgs e)

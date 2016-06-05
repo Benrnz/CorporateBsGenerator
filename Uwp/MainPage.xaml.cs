@@ -1,4 +1,6 @@
-﻿namespace CorporateBsGenerator.Uwp
+﻿using ImageCircle.Forms.Plugin.UWP;
+
+namespace CorporateBsGenerator.Uwp
 {
     /// <summary>
     ///     An empty page that can be used on its own or navigated to within a Frame.
@@ -8,6 +10,7 @@
         public MainPage()
         {
             InitializeComponent();
+            ImageCircleRenderer.Init();
             LoadApplication(new CorporateBsGenerator.App());
         }
     }

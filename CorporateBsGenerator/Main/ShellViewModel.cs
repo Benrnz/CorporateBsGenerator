@@ -10,12 +10,13 @@ namespace CorporateBsGenerator.Main
     {
         private readonly Dictionary<MenuType, NavigationPage> pages;
 
-        public ShellViewModel()
+        public ShellViewModel(MenuViewModel menuViewModel)
         {
             IsLoading = true;
             this.pages = new Dictionary<MenuType, NavigationPage>();
             Title = App.AppName;
             Icon = "slideout.png"; // An inbuilt icon
+            MenuViewModel = menuViewModel;
         }
 
         public event EventHandler Navigating;
@@ -28,8 +29,11 @@ namespace CorporateBsGenerator.Main
 
         public bool IsUwpDesktop { get; set; }
 
+        public MenuViewModel MenuViewModel { get; }
+
         public async Task NavigateAsync(MenuType id)
         {
+            if (IsLoading) return;
             if (!this.pages.ContainsKey(id))
             {
                 switch (id)
@@ -59,6 +63,7 @@ namespace CorporateBsGenerator.Main
             var mainPage = CreateMainPage();
             this.pages.Add(DefaultMenuType, mainPage);
             DetailPage = mainPage;
+            MenuViewModel.SetSelectedItem(DefaultMenuType);
             Navigating?.Invoke(this, EventArgs.Empty);
             IsLoading = false;
         }
