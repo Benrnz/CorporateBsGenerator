@@ -21,8 +21,12 @@ namespace CorporateBsGenerator.Uwp
         {
             InitializeComponent();
             Suspending += OnSuspending;
-            CorporateBsGenerator.App.Version = "";
+            var package = Package.Current;
+            var packageId = package.Id;
+            var version = packageId.Version;
+            CorporateBsGenerator.App.Version = $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
             CorporateBsGenerator.App.IsWindows10 = true;
+            CorporateBsGenerator.App.Logger = new UwpDeviceLogger(CorporateBsGenerator.App.AppName);
         }
 
         /// <summary>
@@ -49,6 +53,7 @@ namespace CorporateBsGenerator.Uwp
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
+                Xamarin.Forms.Forms.Init(e); // requires the `e` parameter
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

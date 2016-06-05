@@ -12,6 +12,7 @@ namespace CorporateBsGenerator.Main
 
         public ShellViewModel()
         {
+            IsLoading = true;
             this.pages = new Dictionary<MenuType, NavigationPage>();
             Title = App.AppName;
             Icon = "slideout.png"; // An inbuilt icon
@@ -23,6 +24,8 @@ namespace CorporateBsGenerator.Main
 
         public Page DetailPage { get; private set; }
 
+        public bool IsLoading { get; private set; }
+
         public bool IsUwpDesktop { get; set; }
 
         public async Task NavigateAsync(MenuType id)
@@ -32,12 +35,12 @@ namespace CorporateBsGenerator.Main
                 switch (id)
                 {
                     case MenuType.About:
-                        var aboutPage = await Task.Run(() => CreateMainPage());
-                        this.pages.Add(id, aboutPage);
+                        var viewModel = await Task.Run(() => new AboutViewModel());
+                        var mainPage = new MyNavigationPage(new AboutPage { BindingContext = viewModel });
+                        this.pages.Add(id, mainPage);
                         break;
                     case MenuType.Generator:
-                        var mainPage = await Task.Run(() => new MyNavigationPage(new MainPage { BindingContext = new MainViewModel() }));
-                        this.pages.Add(id, mainPage);
+                        // Should already be in dictionary by now because it is required to call NavigateToDefaultPage during start up.
                         break;
                 }
             }
@@ -57,11 +60,12 @@ namespace CorporateBsGenerator.Main
             this.pages.Add(DefaultMenuType, mainPage);
             DetailPage = mainPage;
             Navigating?.Invoke(this, EventArgs.Empty);
+            IsLoading = false;
         }
 
         private NavigationPage CreateMainPage()
         {
-            return new MyNavigationPage(new AboutPage { BindingContext = new AboutViewModel() });
+            return new MyNavigationPage(new MainPage { BindingContext = new MainViewModel() });
         }
     }
 }

@@ -15,11 +15,19 @@ namespace CorporateBsGenerator.Main
 
         private void OnNavigating(object sender, System.EventArgs e)
         {
-            Device.BeginInvokeOnMainThread(() =>
+            if (App.Shell.IsLoading)
             {
                 Detail = App.Shell.DetailPage;
                 IsPresented = false;
-            });
+            }
+            else
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    Detail = App.Shell.DetailPage;
+                    IsPresented = false;
+                });
+            }
         }
     }
 }
