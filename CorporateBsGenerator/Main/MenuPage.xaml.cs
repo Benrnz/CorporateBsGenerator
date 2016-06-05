@@ -8,18 +8,10 @@ namespace CorporateBsGenerator.Main
     /// </summary>
     public partial class MenuPage : ContentPage
     {
-        private readonly ShellPage shell;
-
-        public MenuPage(ShellPage shellPage)
+        public MenuPage()
         {
             List<HomeMenuItem> menuItems;
-            this.shell = shellPage;
             InitializeComponent();
-            BindingContext = new BaseViewModel
-            {
-                Title = "Menu",
-                Icon = "slideout.png"
-            };
 
             this.ListViewMenu.ItemsSource = menuItems = new List<HomeMenuItem>
             {
@@ -27,7 +19,7 @@ namespace CorporateBsGenerator.Main
                 new HomeMenuItem { Title = "Generator", MenuType = MenuType.Generator, Icon = "tdl.png" } // TODO Need an icon here
             };
 
-            this.ListViewMenu.SelectedItem = menuItems[0];
+            this.ListViewMenu.SelectedItem = menuItems[1];
 
             this.ListViewMenu.ItemSelected += async (sender, e) =>
             {

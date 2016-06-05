@@ -6,7 +6,7 @@ namespace CorporateBsGenerator.Main
     {
         public ShellPage()
         {
-            Master = new MenuPage(this);
+            Master = new MenuPage();
             App.Shell.NavigateAsync(MenuType.Generator).Wait();
             Detail = App.Shell.DetailPage;
             App.Shell.Navigating += OnNavigating;
