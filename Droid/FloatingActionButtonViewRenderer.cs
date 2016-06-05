@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.IO;
-using System.Threading.Tasks;
 using Android.Content;
 using Android.Graphics;
 using Android.Views;
@@ -12,6 +11,7 @@ using CorporateBsGenerator;
 using CorporateBsGenerator.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using ListView = Xamarin.Forms.ListView;
 using Path = System.IO.Path;
 
 [assembly: ExportRenderer(typeof(FloatingActionButtonView), typeof(FloatingActionButtonViewRenderer))]
@@ -29,23 +29,33 @@ namespace CorporateBsGenerator.Droid
         private const int FAB_MINI_FRAME_WIDTH_WITH_PADDING = MARGIN_DIPS * 2 + FAB_HEIGHT_MINI;
         private readonly Context context;
         private readonly FloatingActionButton fab;
-        private int appearingListItemIndex = 0;
+        private int appearingListItemIndex;
 
         public FloatingActionButtonViewRenderer()
         {
-            context = Forms.Context;
+            this.context = Forms.Context;
 
-            var d = context.Resources.DisplayMetrics.Density;
-            var margin = (int)(MARGIN_DIPS * d); // margin in pixels
+            var d = this.context.Resources.DisplayMetrics.Density;
+            var margin = (int) (MARGIN_DIPS * d); // margin in pixels
 
-            fab = new FloatingActionButton(context);
+            this.fab = new FloatingActionButton(this.context);
             var lp = new FrameLayout.LayoutParams(LayoutParams.WrapContent, LayoutParams.WrapContent);
             lp.Gravity = GravityFlags.CenterVertical | GravityFlags.CenterHorizontal;
             lp.LeftMargin = margin;
             lp.TopMargin = margin;
             lp.BottomMargin = margin;
             lp.RightMargin = margin;
-            fab.LayoutParameters = lp;
+            this.fab.LayoutParameters = lp;
+        }
+
+        public void Hide(bool animate = true)
+        {
+            this.fab.Hide(animate);
+        }
+
+        public void Show(bool animate = true)
+        {
+            this.fab.Show(animate);
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<FloatingActionButtonView> e)
@@ -83,67 +93,27 @@ namespace CorporateBsGenerator.Droid
             SetFabImage(Element.ImageName);
             SetFabSize(Element.Size);
 
-            fab.ColorNormal = Element.ColorNormal.ToAndroid();
-            fab.ColorPressed = Element.ColorPressed.ToAndroid();
-            fab.ColorRipple = Element.ColorRipple.ToAndroid();
-            fab.HasShadow = Element.HasShadow;
-            fab.Click += Fab_Click;
+            this.fab.ColorNormal = Element.ColorNormal.ToAndroid();
+            this.fab.ColorPressed = Element.ColorPressed.ToAndroid();
+            this.fab.ColorRipple = Element.ColorRipple.ToAndroid();
+            this.fab.HasShadow = Element.HasShadow;
+            this.fab.Click += Fab_Click;
 
-            var frame = new FrameLayout(context);
+            var frame = new FrameLayout(this.context);
             frame.RemoveAllViews();
-            frame.AddView(fab);
+            frame.AddView(this.fab);
 
             SetNativeControl(frame);
         }
 
-        private void OnListItemDisappearing(object sender, ItemVisibilityEventArgs e)
+        private void Fab_Click(object sender, EventArgs e)
         {
-            // Experimental - proper hiding and showing of the FAB is dependent on the objects in the list being unique.
-            var list = sender as Xamarin.Forms.ListView;
-            var items = list?.ItemsSource as IList;
-            if (items != null)
+            Action<object, EventArgs> clicked = Element.Clicked;
+            if (Element != null)
             {
-                var index = items.IndexOf(e.Item);
-                if (index < appearingListItemIndex && index != 0)
-                {
-                    appearingListItemIndex = index;
-                    fab.Hide();
-                }
-                else
-                {
-                    appearingListItemIndex = index;
-                }
+                clicked?.Invoke(sender, e);
+                if (Element.Command != null && Element.Command.CanExecute(null)) Element.Command.Execute(null);
             }
-        }
-
-        private void OnListItemAppearing(object sender, ItemVisibilityEventArgs e)
-        {
-            // Experimental - proper hiding and showing of the FAB is dependent on the objects in the list being unique.
-            var list = sender as Xamarin.Forms.ListView;
-            var items = list?.ItemsSource as IList;
-            if (items != null)
-            {
-                var index = items.IndexOf(e.Item);
-                if (index < appearingListItemIndex)
-                {
-                    appearingListItemIndex = index;
-                    fab.Show();
-                }
-                else
-                {
-                    appearingListItemIndex = index;
-                }
-            }
-        }
-
-        public void Show(bool animate = true)
-        {
-            fab.Show(animate);
-        }
-
-        public void Hide(bool animate = true)
-        {
-            fab.Hide(animate);
         }
 
         private void HandlePropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -154,15 +124,15 @@ namespace CorporateBsGenerator.Droid
             }
             else if (e.PropertyName == FloatingActionButtonView.ColorNormalProperty.PropertyName)
             {
-                fab.ColorNormal = Element.ColorNormal.ToAndroid();
+                this.fab.ColorNormal = Element.ColorNormal.ToAndroid();
             }
             else if (e.PropertyName == FloatingActionButtonView.ColorPressedProperty.PropertyName)
             {
-                fab.ColorPressed = Element.ColorPressed.ToAndroid();
+                this.fab.ColorPressed = Element.ColorPressed.ToAndroid();
             }
             else if (e.PropertyName == FloatingActionButtonView.ColorRippleProperty.PropertyName)
             {
-                fab.ColorRipple = Element.ColorRipple.ToAndroid();
+                this.fab.ColorRipple = Element.ColorRipple.ToAndroid();
             }
             else if (e.PropertyName == FloatingActionButtonView.ImageNameProperty.PropertyName)
             {
@@ -174,7 +144,47 @@ namespace CorporateBsGenerator.Droid
             }
             else if (e.PropertyName == FloatingActionButtonView.HasShadowProperty.PropertyName)
             {
-                fab.HasShadow = Element.HasShadow;
+                this.fab.HasShadow = Element.HasShadow;
+            }
+        }
+
+        private void OnListItemAppearing(object sender, ItemVisibilityEventArgs e)
+        {
+            // Experimental - proper hiding and showing of the FAB is dependent on the objects in the list being unique.
+            var list = sender as ListView;
+            var items = list?.ItemsSource as IList;
+            if (items != null)
+            {
+                var index = items.IndexOf(e.Item);
+                if (index < this.appearingListItemIndex)
+                {
+                    this.appearingListItemIndex = index;
+                    this.fab.Show();
+                }
+                else
+                {
+                    this.appearingListItemIndex = index;
+                }
+            }
+        }
+
+        private void OnListItemDisappearing(object sender, ItemVisibilityEventArgs e)
+        {
+            // Experimental - proper hiding and showing of the FAB is dependent on the objects in the list being unique.
+            var list = sender as ListView;
+            var items = list?.ItemsSource as IList;
+            if (items != null)
+            {
+                var index = items.IndexOf(e.Item);
+                if (index < this.appearingListItemIndex && index != 0)
+                {
+                    this.appearingListItemIndex = index;
+                    this.fab.Hide();
+                }
+                else
+                {
+                    this.appearingListItemIndex = index;
+                }
             }
         }
 
@@ -185,10 +195,9 @@ namespace CorporateBsGenerator.Droid
                 try
                 {
                     var drawableNameWithoutExtension = Path.GetFileNameWithoutExtension(imageName);
-                    var resources = context.Resources;
-                    var imageResourceName = resources.GetIdentifier(drawableNameWithoutExtension, "drawable",
-                        context.PackageName);
-                    fab.SetImageBitmap(BitmapFactory.DecodeResource(context.Resources, imageResourceName));
+                    var resources = this.context.Resources;
+                    var imageResourceName = resources.GetIdentifier(drawableNameWithoutExtension, "drawable", this.context.PackageName);
+                    this.fab.SetImageBitmap(BitmapFactory.DecodeResource(this.context.Resources, imageResourceName));
                 }
                 catch (Exception ex)
                 {
@@ -201,25 +210,15 @@ namespace CorporateBsGenerator.Droid
         {
             if (size == FloatingActionButtonSize.Mini)
             {
-                fab.Size = FabSize.Mini;
+                this.fab.Size = FabSize.Mini;
                 Element.WidthRequest = FAB_MINI_FRAME_WIDTH_WITH_PADDING;
                 Element.HeightRequest = FAB_MINI_FRAME_HEIGHT_WITH_PADDING;
             }
             else
             {
-                fab.Size = FabSize.Normal;
+                this.fab.Size = FabSize.Normal;
                 Element.WidthRequest = FAB_FRAME_WIDTH_WITH_PADDING;
                 Element.HeightRequest = FAB_FRAME_HEIGHT_WITH_PADDING;
-            }
-        }
-
-        private void Fab_Click(object sender, EventArgs e)
-        {
-            var clicked = Element.Clicked;
-            if (Element != null)
-            {
-                clicked?.Invoke(sender, e);
-                if (Element.Command != null && Element.Command.CanExecute(null)) Element.Command.Execute(null);
             }
         }
     }

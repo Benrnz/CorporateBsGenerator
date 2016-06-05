@@ -20,6 +20,7 @@ namespace CorporateBsGenerator.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            App.Version = NSBundle.MainBundle.InfoDictionary[new NSString("CFBundleVersion")].ToString();
             App.Logger = new IosDeviceLogger(App.AppName);
             Forms.Init();
             ImageCircleRenderer.Init();

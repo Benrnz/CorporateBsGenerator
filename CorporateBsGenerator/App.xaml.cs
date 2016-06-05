@@ -12,12 +12,17 @@ namespace CorporateBsGenerator
         {
             InitializeComponent();
             // The root page of your application
-            MainPage = new ShellPage();
+            Shell = new ShellViewModel();
+            MainPage = new ShellPage { BindingContext = Shell };
         }
+
+        public static ShellViewModel Shell { get; private set; }
 
         public static bool IsWindows10 { get; set; }
 
         public static IDeviceLogger Logger { get; set; }
+
+        public static string Version { get; set; }
 
         protected override void OnResume()
         {

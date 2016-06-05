@@ -16,8 +16,8 @@ namespace CorporateBsGenerator.Droid
     {
 		protected override void OnCreate (Bundle bundle)
 		{
-            FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
-            FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
+            ToolbarResource = Resource.Layout.toolbar;
+            TabLayoutResource = Resource.Layout.tabs;
             
             base.OnCreate (bundle);
 

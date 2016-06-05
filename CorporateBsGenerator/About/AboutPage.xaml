@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CorporateBsGenerator.About.AboutPage"
+             Title="{Binding Title}"
+             Icon="{Binding Icon}">
+    <Grid Padding="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.ColumnSpan="2"
+               Grid.Row="0"
+               HorizontalOptions="Start"
+                Text="The Corporate BS Generator"
+               Style="{StaticResource Style.LabelHeading}"/>
+        <Label Grid.ColumnSpan="2"
+               Grid.Row="1"
+               Text="Developed by Ben Rees"
+               Style="{StaticResource Style.LabelInstruction}"/>
+        <Image Grid.Column="0"
+               Grid.Row="2"
+               HeightRequest="32"
+               WidthRequest="32"
+               HorizontalOptions="Start"
+               VerticalOptions="Start"
+               Source="twitter.png"/>
+        <Label Grid.Column="1"
+               Grid.Row="2" 
+               Text="@benrnz"
+               Style="{StaticResource Style.LabelInstruction}"/>
+        <Image Grid.Column="0"
+               Grid.Row="3"
+               HeightRequest="32"
+               WidthRequest="32"
+               HorizontalOptions="Start"
+               VerticalOptions="Start"
+               Source="globe.png"/>
+        <Label x:Name="WebLink" 
+               Grid.Column="1"
+               Grid.Row="3" 
+               Text="{Binding WebSiteUri.OriginalString}"
+               Style="{StaticResource Style.LabelInstruction}" />
+        <Label Grid.Row="4" 
+               Grid.ColumnSpan="2"
+               Margin="0,50,0,0"
+               Text="This App was developed to explore and showcase the features of Xamarin.Forms."
+               Style="{StaticResource Style.Paragraph}"/>
+
+    </Grid>
+</ContentPage>
