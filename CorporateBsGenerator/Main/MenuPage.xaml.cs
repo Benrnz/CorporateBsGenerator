@@ -20,12 +20,12 @@ namespace CorporateBsGenerator.Main
             };
 
             this.ListViewMenu.SelectedItem = menuItems[1];
+        }
 
-            this.ListViewMenu.ItemSelected += async (sender, e) =>
-            {
-                if (this.ListViewMenu.SelectedItem == null) return;
-                await App.Shell.NavigateAsync(((HomeMenuItem) e.SelectedItem).MenuType);
-            };
+        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (this.ListViewMenu.SelectedItem == null) return;
+            await App.Shell.NavigateAsync(((HomeMenuItem)e.SelectedItem).MenuType);
         }
     }
 }

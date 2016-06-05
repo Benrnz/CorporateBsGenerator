@@ -52,6 +52,7 @@
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Main\MenuType.cs" />
+    <Compile Include="Main\MenuViewModel.cs" />
     <Compile Include="Main\ShellPage.cs" />
     <Compile Include="Main\ShellViewModel.cs" />
     <Compile Include="MyNavigationPage.cs" />

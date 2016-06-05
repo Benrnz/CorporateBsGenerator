@@ -2,20 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
+             xmlns:local="clr-namespace:CorporateBsGenerator.Main;assembly=CorporateBsGenerator"
              x:Class="CorporateBsGenerator.Main.MenuPage"
              Title="{Binding Title}"
              Icon="{Binding Icon}">
     
     <ContentPage.BindingContext>
-        <local:BaseViewModel Title="Menu"
+        <local:MenuViewModel Title="Menu"
                              Icon="slideout.png" />
     </ContentPage.BindingContext>
     
     <ListView x:Name="ListViewMenu" 
               CachingStrategy="RecycleElement"
               SeparatorColor="Transparent"
-              HasUnevenRows="True">
+              HasUnevenRows="True"
+              ItemSelected="OnItemSelected">
         <ListView.Header>
             <Grid>
                 <Grid.ColumnDefinitions>
