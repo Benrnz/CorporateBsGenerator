@@ -13,8 +13,6 @@ namespace CorporateBsGenerator.Main
                 new HomeMenuItem { Title = "About", MenuType = MenuType.About, Icon = "about.png" },
                 new HomeMenuItem { Title = "Generator", MenuType = MenuType.Generator, Icon = "bubble.png" } 
             };
-
-            SelectedMenuItem = MenuItems[1];
         }
 
         public List<HomeMenuItem> MenuItems { get; private set; }
