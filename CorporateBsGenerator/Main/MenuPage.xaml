@@ -17,8 +17,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="ListViewMenu"
-                  CachingStrategy="RecycleElement"
+        <ListView CachingStrategy="RecycleElement"
                   SeparatorColor="Transparent"
                   HasUnevenRows="True"
                   ItemsSource="{Binding MenuItems}"
