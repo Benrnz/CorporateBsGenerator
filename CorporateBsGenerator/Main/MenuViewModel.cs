@@ -11,7 +11,7 @@ namespace CorporateBsGenerator.Main
             MenuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem { Title = "About", MenuType = MenuType.About, Icon = "about.png" },
-                new HomeMenuItem { Title = "Generator", MenuType = MenuType.Generator, Icon = "tdl.png" } // TODO Need an icon here
+                new HomeMenuItem { Title = "Generator", MenuType = MenuType.Generator, Icon = "bubble.png" } 
             };
 
             SelectedMenuItem = MenuItems[1];
