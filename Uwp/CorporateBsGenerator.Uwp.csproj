@@ -111,8 +111,10 @@
     <Content Include="about.png" />
     <Content Include="bubble.png" />
     <Content Include="globe.png" />
+    <Content Include="ic_add.png" />
     <Content Include="ic_launcher.png" />
     <AndroidResource Include="Assets\Trash.png" />
+    <Content Include="Trash.png" />
     <Content Include="twitter.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
