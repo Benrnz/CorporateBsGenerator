@@ -25,6 +25,11 @@ namespace CorporateBsGenerator.Main
             set { SetProperty(ref this.doNotUseSelectedMenuItem, value, onChanged: OnMenuItemChanged); }
         }
 
+        public string Version
+        {
+            get { return App.Version; }
+        }
+
         private async void OnMenuItemChanged()
         {
             if (SelectedMenuItem == null) return;

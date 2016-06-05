@@ -2,7 +2,6 @@ using System;
 using Android.App;
 using Android.OS;
 using Android.Runtime;
-using Android.Util;
 
 namespace CorporateBsGenerator.Droid
 {
@@ -38,6 +37,7 @@ namespace CorporateBsGenerator.Droid
             base.OnCreate();
             RegisterActivityLifecycleCallbacks(this);
             App.Logger = new DroidDeviceLogger(App.AppName);
+            App.Version = PackageManager.GetPackageInfo(PackageName, 0).VersionName;
         }
 
         public void OnActivityCreated(Activity activity, Bundle savedInstanceState)

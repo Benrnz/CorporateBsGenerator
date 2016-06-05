@@ -6,69 +6,77 @@
              x:Class="CorporateBsGenerator.Main.MenuPage"
              Title="{Binding Title}"
              Icon="{Binding Icon}">
-    
+
     <ContentPage.BindingContext>
         <local:MenuViewModel Title="Menu"
                              Icon="slideout.png" />
     </ContentPage.BindingContext>
-    
-    <ListView x:Name="ListViewMenu" 
-              CachingStrategy="RecycleElement"
-              SeparatorColor="Transparent"
-              HasUnevenRows="True"
-              ItemsSource="{Binding MenuItems}"
-              SelectedItem="{Binding SelectedMenuItem}">
-        <ListView.Header>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="10"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="80"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="5"/>
-                </Grid.RowDefinitions>
 
-                <BoxView Grid.ColumnSpan="3"
-                         Grid.RowSpan="4"
-                         BackgroundColor="#03A9F4"/>
-                
-                <controls:CircleImage
-                    Grid.Column="1"
-                    Grid.Row="1"
-                    HorizontalOptions="Start"
-                    VerticalOptions="End"
-                    Source="ic_launcher.png"
-                    WidthRequest="75" 
-                    HeightRequest="75"/>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="2"
-                    Text="{Binding Title}"
-                    Style="{DynamicResource SubtitleStyle}"/>
-            </Grid>
-        </ListView.Header>
-        
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Grid Padding="20">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Image Source="{Binding Icon}" 
-                               HeightRequest="25" 
-                               WidthRequest="25"/>
-                        <Label Grid.Column="1" 
-                               Text="{Binding Title}" 
-                               FontSize="24"/>
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="ListViewMenu"
+                  CachingStrategy="RecycleElement"
+                  SeparatorColor="Transparent"
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding MenuItems}"
+                  SelectedItem="{Binding SelectedMenuItem}">
+            <ListView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5"/>
+                    </Grid.RowDefinitions>
+
+                    <BoxView Grid.ColumnSpan="3"
+                             Grid.RowSpan="4"
+                             BackgroundColor="#03A9F4"/>
+
+                    <controls:CircleImage
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        HorizontalOptions="Start"
+                        VerticalOptions="End"
+                        Source="ic_launcher.png"
+                        WidthRequest="75"
+                        HeightRequest="75"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Text="{Binding Title}"
+                        Style="{DynamicResource SubtitleStyle}"/>
+                </Grid>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Icon}"
+                                   HeightRequest="25"
+                                   WidthRequest="25"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Title}"
+                                   FontSize="24"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Grid.Row="1" 
+               Text="{Binding Version}"/>
+    </Grid>
 </ContentPage>

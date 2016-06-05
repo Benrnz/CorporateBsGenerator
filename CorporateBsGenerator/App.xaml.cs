@@ -22,6 +22,8 @@ namespace CorporateBsGenerator
 
         public static IDeviceLogger Logger { get; set; }
 
+        public static string Version { get; set; }
+
         protected override void OnResume()
         {
             // Handle when your app resumes
