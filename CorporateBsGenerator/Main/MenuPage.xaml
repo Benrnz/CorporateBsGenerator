@@ -16,7 +16,6 @@
               CachingStrategy="RecycleElement"
               SeparatorColor="Transparent"
               HasUnevenRows="True"
-              ItemSelected="OnItemSelected"
               ItemsSource="{Binding MenuItems}"
               SelectedItem="{Binding SelectedMenuItem}">
         <ListView.Header>

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Xamarin.Forms;
-
-namespace CorporateBsGenerator.Main
+﻿namespace CorporateBsGenerator.Main
 {
     /// <summary>
     /// The Drawer menu page
@@ -11,12 +8,6 @@ namespace CorporateBsGenerator.Main
         public MenuPage()
         {
             InitializeComponent();
-        }
-
-        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            if (this.ListViewMenu.SelectedItem == null) return;
-            await App.Shell.NavigateAsync(((HomeMenuItem)e.SelectedItem).MenuType);
         }
     }
 }

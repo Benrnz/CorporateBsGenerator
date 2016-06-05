@@ -22,7 +22,13 @@ namespace CorporateBsGenerator.Main
         public HomeMenuItem SelectedMenuItem
         {
             get { return this.doNotUseSelectedMenuItem; }
-            set { SetProperty(ref this.doNotUseSelectedMenuItem, value); }
+            set { SetProperty(ref this.doNotUseSelectedMenuItem, value, onChanged: OnMenuItemChanged); }
+        }
+
+        private async void OnMenuItemChanged()
+        {
+            if (SelectedMenuItem == null) return;
+            await App.Shell.NavigateAsync(((HomeMenuItem)SelectedMenuItem).MenuType);
         }
     }
 }
