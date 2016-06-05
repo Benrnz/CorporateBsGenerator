@@ -54,9 +54,7 @@ Global
 		{8661C7DD-BEB9-4893-85D8-F6B65BDD0720}.Store|Simulator.Build.0 = Release|Any CPU
 		{8661C7DD-BEB9-4893-85D8-F6B65BDD0720}.Store|Simulator.Deploy.0 = Release|Any CPU
 		{24C15A62-308E-415C-9E33-E782B25E7479}.AdHoc|RealDevices.ActiveCfg = Ad-Hoc|iPhone
-		{24C15A62-308E-415C-9E33-E782B25E7479}.AdHoc|RealDevices.Build.0 = Ad-Hoc|iPhone
 		{24C15A62-308E-415C-9E33-E782B25E7479}.AdHoc|Simulator.ActiveCfg = Ad-Hoc|iPhoneSimulator
-		{24C15A62-308E-415C-9E33-E782B25E7479}.AdHoc|Simulator.Build.0 = Ad-Hoc|iPhoneSimulator
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Debug|RealDevices.ActiveCfg = Debug|iPhone
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Debug|Simulator.ActiveCfg = Debug|iPhoneSimulator
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Store|RealDevices.ActiveCfg = AppStore|iPhone
