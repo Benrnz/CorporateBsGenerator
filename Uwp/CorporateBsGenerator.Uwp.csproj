@@ -105,10 +105,10 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="CorporateBsGenerator.Uwp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
     <Content Include="bubble.png" />
     <Content Include="globe.png" />
     <Content Include="ic_add.png" />
