@@ -12,28 +12,52 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <Image 
-            Aspect="Fill" 
-            HeightRequest="30" 
-            HorizontalOptions="End" 
-            IsVisible="{Binding ShowResetButton}" 
-            Source="Trash.png" 
-            VerticalOptions="Start" 
-            WidthRequest="25">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer 
-                    Command="{Binding ResetCommand}" 
-                    NumberOfTapsRequired="1" />
-            </Image.GestureRecognizers>
-        </Image>
-        
+      
         <Label 
             Grid.Row="0" 
             IsVisible="{Binding ShowInstructions}" 
             Style="{StaticResource Style.LabelInstruction}" 
             Text="{Binding Instructions}" />
-        
+
+        <StackLayout Grid.Row="0" 
+                     Orientation="Horizontal"
+                     HorizontalOptions="End"
+                     VerticalOptions="Center">
+            <Image
+                Style="{StaticResource Style.ImageButton}"
+                IsVisible="{Binding ShowResetButton}"
+                Source="Trash.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding ResetCommand}"
+                        NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            <!-- This button is for iOS and Windows only.  It will be hidden on Android. -->
+            <Image
+                Style="{StaticResource Style.ImageButton}"
+                Source="ic_add.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding GenerateCommand}"
+                        NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+                <Image.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <OnPlatform.iOS>
+                            True
+                        </OnPlatform.iOS>
+                        <OnPlatform.Android>
+                            False
+                        </OnPlatform.Android>
+                        <OnPlatform.WinPhone>
+                            True
+                        </OnPlatform.WinPhone>
+                    </OnPlatform>
+                </Image.IsVisible>
+            </Image>
+        </StackLayout>
+
         <ListView 
             x:Name="MainList" 
             Grid.Row="1" 
@@ -55,24 +79,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!-- This button is for iOS only.  It will be hidden on Android. -->
-        <Button 
-            Command="{Binding GenerateCommand}" 
-            Grid.Row="0" 
-            HorizontalOptions="End" 
-            Margin="0,0,30,0"
-            Text="+">
-            <Button.IsVisible>
-                <OnPlatform x:TypeArguments="x:Boolean">
-                    <OnPlatform.iOS>
-                        True
-                    </OnPlatform.iOS>
-                    <OnPlatform.Android>
-                        False
-                    </OnPlatform.Android>
-                </OnPlatform>
-            </Button.IsVisible>
-        </Button>
+
         <!-- This custom button control is for Android only. It will be hidden on 
              iOS because the iOS project does not have a Custom Renderer to draw it. -->
         <!-- x,y position is proportional, but size is absolute. The AutoSize will 

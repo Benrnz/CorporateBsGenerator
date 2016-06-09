@@ -34,6 +34,14 @@
                 <Setter Property="LineBreakMode" Value="WordWrap"/>
                 <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
             </Style>
+            
+            <Style x:Key="Style.ImageButton"
+                   TargetType="Image">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="32"/>
+                <Setter Property="Aspect" Value="Fill"/>
+                <Setter Property="BackgroundColor" Value="#3498DB"/>
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

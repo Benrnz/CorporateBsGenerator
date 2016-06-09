@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace CorporateBsGenerator.Main
 {
@@ -11,13 +12,11 @@ namespace CorporateBsGenerator.Main
             MenuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem { Title = "About", MenuType = MenuType.About, Icon = "about.png" },
-                new HomeMenuItem { Title = "Generator", MenuType = MenuType.Generator, Icon = "bubble.png" } 
+                new HomeMenuItem { Title = "Generator", MenuType = MenuType.Generator, Icon = "bubble.png" }
             };
-
-            SelectedMenuItem = MenuItems[1];
         }
 
-        public List<HomeMenuItem> MenuItems { get; private set; }
+        public List<HomeMenuItem> MenuItems { get; }
 
         public HomeMenuItem SelectedMenuItem
         {
@@ -30,10 +29,16 @@ namespace CorporateBsGenerator.Main
             get { return App.Version; }
         }
 
+        public void SetSelectedItem(MenuType menuType)
+        {
+            var item = MenuItems.Single(m => m.MenuType == menuType);
+            SelectedMenuItem = item;
+        }
+
         private async void OnMenuItemChanged()
         {
             if (SelectedMenuItem == null) return;
-            await App.Shell.NavigateAsync(((HomeMenuItem)SelectedMenuItem).MenuType);
+            await App.Shell.NavigateAsync(SelectedMenuItem.MenuType);
         }
     }
 }

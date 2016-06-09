@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace CorporateBsGenerator.Main
 {
@@ -7,18 +8,24 @@ namespace CorporateBsGenerator.Main
         public ShellPage()
         {
             Master = new MenuPage();
-            App.Shell.NavigateAsync(MenuType.Generator).Wait();
-            Detail = App.Shell.DetailPage;
             App.Shell.Navigating += OnNavigating;
-
-            // ReSharper disable once VirtualMemberCallInContructor
-            InvalidateMeasure();
         }
 
         private void OnNavigating(object sender, System.EventArgs e)
         {
-            Detail = App.Shell.DetailPage;
-            IsPresented = false;
+            if (App.Shell.IsLoading)
+            {
+                Detail = App.Shell.DetailPage;
+                IsPresented = false;
+            }
+            else
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    Detail = App.Shell.DetailPage;
+                    IsPresented = false;
+                });
+            }
         }
     }
 }

@@ -2,27 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             xmlns:local="clr-namespace:CorporateBsGenerator.Main;assembly=CorporateBsGenerator"
+             xmlns:corporateBsGenerator="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator"
              x:Class="CorporateBsGenerator.Main.MenuPage"
-             Title="{Binding Title}"
-             Icon="{Binding Icon}">
-
-    <ContentPage.BindingContext>
-        <local:MenuViewModel Title="Menu"
-                             Icon="slideout.png" />
-    </ContentPage.BindingContext>
-
-    <Grid>
+             BindingContext="{x:Static corporateBsGenerator:App.Shell}"
+             Title="Menu"
+             Icon="{Binding MenuViewModel.Icon}">
+    
+    <Grid BindingContext="{Binding MenuViewModel}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="ListViewMenu"
-                  CachingStrategy="RecycleElement"
+        <ListView CachingStrategy="RecycleElement"
                   SeparatorColor="Transparent"
                   HasUnevenRows="True"
                   ItemsSource="{Binding MenuItems}"
-                  SelectedItem="{Binding SelectedMenuItem}">
+                  SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}">
             <ListView.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
