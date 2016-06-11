@@ -14,7 +14,6 @@ namespace CorporateBsGenerator
         private string doNotUseIcon;
         private bool doNotUseIsBusy;
         private bool doNotUseIsNotBusy;
-        private string doNotUseSubtitle;
         private string doNotUseTitle;
 
         public event PropertyChangedEventHandler PropertyChanged;
