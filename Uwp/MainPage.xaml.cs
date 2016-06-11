@@ -10,7 +10,6 @@ namespace CorporateBsGenerator.Uwp
         public MainPage()
         {
             InitializeComponent();
-            ImageCircleRenderer.Init();
             LoadApplication(new CorporateBsGenerator.App());
         }
     }

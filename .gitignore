@@ -235,3 +235,5 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 rees-biz-key.txt
+*.appx
+/Uwp/_pkginfo.txt

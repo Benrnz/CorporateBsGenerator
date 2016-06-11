@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace CorporateBsGenerator.Main
 {
@@ -23,7 +22,7 @@ namespace CorporateBsGenerator.Main
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     Detail = App.Shell.DetailPage;
-                    IsPresented = false;
+                    IsPresented = Device.Idiom == TargetIdiom.Desktop || Device.Idiom == TargetIdiom.Tablet;
                 });
             }
         }
