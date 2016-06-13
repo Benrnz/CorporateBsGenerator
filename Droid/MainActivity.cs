@@ -1,19 +1,29 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using ImageCircle.Forms.Plugin.Droid;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 namespace CorporateBsGenerator.Droid
 {
-	[Activity (Label = "Corporate BS Generator", Icon = "@drawable/ic_launcher", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
-	{
+	[Activity(
+        Label = App.AppName, 
+        Icon = "@drawable/ic_launcher", 
+        MainLauncher = true, 
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	public class MainActivity : FormsAppCompatActivity
+    {
 		protected override void OnCreate (Bundle bundle)
 		{
-			base.OnCreate (bundle);
+            ToolbarResource = Resource.Layout.toolbar;
+            TabLayoutResource = Resource.Layout.tabs;
+            
+            base.OnCreate (bundle);
 
-			global::Xamarin.Forms.Forms.Init (this, bundle);
-
-			LoadApplication (new App ());
+			Forms.Init (this, bundle);
+            ImageCircleRenderer.Init();
+            LoadApplication (new App ());
 		}
 	}
 }

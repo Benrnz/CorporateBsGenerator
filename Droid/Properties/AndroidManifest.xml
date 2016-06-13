@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="biz.rees.corporatebsgenerator" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0.999" package="biz.rees.corporatebsgenerator" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="23" />
-	<application android:label="Corporate BS Generator" android:icon="@drawable/ic_launcher"></application>
+	<application android:label="Corporate BS" android:icon="@drawable/ic_launcher" android:theme="@style/MyTheme"></application>
 </manifest>

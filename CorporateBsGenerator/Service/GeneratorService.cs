@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CorporateBsGenerator.Services
+namespace CorporateBsGenerator.Service
 {
     public class GeneratorService
     {
-        private static Random RandomGenerator;
-        private static List<string> Adverbs = new List<string> {
+        private static readonly Random RandomGenerator;
+
+        private static readonly List<string> Adverbs = new List<string> {
             "appropriately", "assertively", "authoritatively", "collaboratively", "compellingly", "competently", "completely",
             "continually", "conveniently", "credibly", "distinctively", "dramatically", "dynamically", "efficiently",
             "energistically", "enthusiastically", "globally", "holisticly", "interactively", "intrinsically", "monotonectally",
@@ -15,7 +16,7 @@ namespace CorporateBsGenerator.Services
             "seamlessly", "synergistically", "uniquely", "fungibly", "disruptively", "randmonly"
             };
 
-        private static List<string> Verbs = new List<string> {
+        private static readonly List<string> Verbs = new List<string> {
             "actualise", "administrate", "aggregate", "architect", "benchmark", "brand", "build", "communicate", "conceptualise",
             "coordinate", "create", "cultivate", "customise", "deliver", "deploy", "develop", "disintermediate", "disseminate",
             "drive", "embrace", "e-enable", "empower", "enable", "engage", "engineer", "enhance", "envisioneer", "evisculate",
@@ -30,7 +31,7 @@ namespace CorporateBsGenerator.Services
             "evangelise"
             };
 
-        private static List<string> Adjectives = new List<string> {
+        private static readonly List<string> Adjectives = new List<string> {
             "24/7", "24/365", "accurate", "adaptive", "alternative", "an expanded array of", "B2B", "B2C", "backend",
             "backward-compatible", "best-of-breed", "bleeding-edge", "bricks-and-clicks", "business", "clicks-and-mortar",
             "client-based", "client-centered", "client-centric", "client-focused", "collaborative", "compelling", "competitive",
@@ -57,7 +58,7 @@ namespace CorporateBsGenerator.Services
 
             };
 
-        private static List<string> Nouns = new List<string> {
+        private static readonly List<string> Nouns = new List<string> {
             "artificial intelligence", "alignments", "real time data", "architectures", "bandwidth", "benefits",
             "best practices", "cadence", "catalysts for change", "channels", "collaboration and idea-sharing", "communities", "Mobilegeddon",
             "convergence", "core competencies", "Generation Z saturation", "Millennials saturation", "data", "deliverables", "e-business", "e-commerce", "e-markets",

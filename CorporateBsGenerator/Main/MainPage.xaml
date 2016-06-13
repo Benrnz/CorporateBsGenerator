@@ -1,0 +1,101 @@
+<ContentPage 
+    x:Class="CorporateBsGenerator.Main.MainPage" 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    BackgroundColor="Silver"
+    Title="{Binding Title}">
+    <!-- Takes up the whole screen and we're going to position controls using a table -->
+
+    <Grid Padding="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+      
+        <Label 
+            Grid.Row="0" 
+            IsVisible="{Binding ShowInstructions}" 
+            Style="{StaticResource Style.LabelInstruction}" 
+            Text="{Binding Instructions}" />
+
+        <StackLayout Grid.Row="0" 
+                     Orientation="Horizontal"
+                     HorizontalOptions="End"
+                     VerticalOptions="Center">
+            <Image
+                Style="{StaticResource Style.ImageButton}"
+                IsVisible="{Binding ShowResetButton}"
+                Source="Trash.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding ResetCommand}"
+                        NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            <!-- This button is for iOS and Windows only.  It will be hidden on Android. -->
+            <Image
+                Style="{StaticResource Style.ImageButton}"
+                Source="ic_add.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding GenerateCommand}"
+                        NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+                <Image.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <OnPlatform.iOS>
+                            True
+                        </OnPlatform.iOS>
+                        <OnPlatform.Android>
+                            False
+                        </OnPlatform.Android>
+                        <OnPlatform.WinPhone>
+                            True
+                        </OnPlatform.WinPhone>
+                    </OnPlatform>
+                </Image.IsVisible>
+            </Image>
+        </StackLayout>
+
+        <ListView 
+            x:Name="MainList" 
+            Grid.Row="1" 
+            ItemsSource="{Binding Results}"
+            HasUnevenRows="True"
+            VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Margin="0,5,0,5"
+                                VerticalOptions="FillAndExpand">
+                                <Label Style="{StaticResource Style.Paragraph}" 
+                                       Text="{Binding .}" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- This custom button control is for Android only. It will be hidden on 
+             iOS because the iOS project does not have a Custom Renderer to draw it. -->
+        <!-- x,y position is proportional, but size is absolute. The AutoSize will 
+             allow the control size itself to whatever size it needs. -->
+        <local:FloatingActionButtonView 
+            x:Name="FabButton"
+            ColorNormal="#ff3498db" 
+            ColorPressed="Black" 
+            ColorRipple="#ff3498db" 
+            Command="{Binding GenerateCommand}" 
+            Grid.Row="1" 
+            HasShadow="True" 
+            HorizontalOptions="End" 
+            ImageName="ic_add.png" 
+            ParentList="{Binding Source={x:Reference MainList}, Path=.}" 
+            VerticalOptions="End" />
+    </Grid>
+
+</ContentPage>
