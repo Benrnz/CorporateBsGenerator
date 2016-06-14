@@ -10,7 +10,13 @@ This is a example application exploring several basic aspects of Xamarin.Forms.
 + Simple navigation
 
 
-![Screenshot of the Corporate BS Generator](https://github.com/Benrnz/CorporateBsGenerator/blob/master/CorporateBsGenerator/Assets/BSGen1.png "The Corporate BS Generator")
+![Android Screenshot](https://github.com/Benrnz/CorporateBsGenerator/blob/develop/Droid/Resources/drawable-xhdpi/Screenshot1.png?raw=true "The Android Corporate BS Generator")
+
+The Android Corporate BS Generator
+
+![Windows Screenshot](https://github.com/Benrnz/CorporateBsGenerator/blob/develop/Uwp/StoreAssets/2016-06-12%20(1).png?raw=true "The Windows 10 Corporate BS Generator")
+
+The Windows 10 Corporate BS Generator
 
 For more information see: [Corporate BS Website](http://blog.rees.biz/p/corporate-bs-generator.html "Corporate BS Generator Website")
 
