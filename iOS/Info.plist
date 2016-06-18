@@ -36,5 +36,7 @@
 	<string>Assets.xcassets/AppIcons.appiconset</string>
 	<key>UIMainNibFile</key>
 	<string>LaunchScreen</string>
+	<key>XSLaunchImageAssets</key>
+	<string>Assets.xcassets/LaunchImage.launchimage</string>
 </dict>
 </plist>
