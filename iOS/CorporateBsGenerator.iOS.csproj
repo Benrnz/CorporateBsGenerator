@@ -136,7 +136,6 @@
     <Content Include="Entitlements.plist" />
     <BundleResource Include="Resources\Icon-Small-40%402x.png" />
     <BundleResource Include="Resources\Icon-60%402x.png" />
-    <BundleResource Include="Resources\Default-568h%402x.png" />
     <BundleResource Include="Resources\about.png" />
     <BundleResource Include="Resources\bubble.png" />
     <BundleResource Include="Resources\globe.png" />
