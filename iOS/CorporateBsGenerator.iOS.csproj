@@ -144,6 +144,7 @@
     <BundleResource Include="Resources\ic_launcher.png" />
     <BundleResource Include="Resources\Trash.png" />
     <BundleResource Include="Resources\twitter.png" />
+    <BundleResource Include="Resources\BaseTemplate.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CorporateBsGenerator\CorporateBsGenerator.csproj">
