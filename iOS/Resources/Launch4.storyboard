@@ -23,7 +23,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PLn-Q1-QXa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PLn-Q1-QXa" image="BaseTemplate.png">
                                 <rect key="frame" x="200" y="82" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="395-pg-eRV"/>
@@ -42,6 +42,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="about.png" width="40" height="40"/>
+        <image name="BaseTemplate.png" width="600" height="600"/>
+        <image name="bubble.png" width="40" height="40"/>
+        <image name="globe.png" width="40" height="40"/>
+        <image name="ic_add.png" width="72" height="72"/>
+        <image name="ic_launcher.png" width="144" height="144"/>
+        <image name="Trash.png" width="108" height="144"/>
+        <image name="twitter.png" width="40" height="40"/>
+    </resources>
 </document>

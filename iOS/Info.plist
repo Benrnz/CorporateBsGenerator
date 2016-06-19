@@ -19,7 +19,7 @@
 		<integer>1</integer>
 	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen3</string>
+	<string>Launch4</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -32,11 +32,11 @@
 	</array>
 	<key>CFBundleName</key>
 	<string>Corporate BS</string>
-	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcons.appiconset</string>
 	<key>UIMainNibFile</key>
 	<string>LaunchScreen</string>
-	<key>XSLaunchImageAssets</key>
-	<string>Assets.xcassets/LaunchImage.launchimage</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Launch4</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleBlackOpaque</string>
 </dict>
 </plist>
