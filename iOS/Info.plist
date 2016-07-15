@@ -39,6 +39,6 @@
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>XSAppIconAssets</key>
-	<string>Resources/Assets.xcassets/AppIcons.appiconset</string>
+	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
 </dict>
 </plist>
