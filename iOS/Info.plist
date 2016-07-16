@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Corporate BS</string>
 	<key>CFBundleIdentifier</key>
-	<string>biz.rees.CorporateBsGenerator</string>
+	<string>biz.rees.CorporateBs</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
