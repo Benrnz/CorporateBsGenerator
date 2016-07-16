@@ -3,9 +3,9 @@
     "Microsoft.Bcl": "1.1.10",
     "Microsoft.Bcl.Build": "1.0.21",
     "Microsoft.Bcl.Compression": "3.9.85",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "Xam.Plugins.Forms.ImageCircle": "1.4.1",
-    "Xamarin.Forms": "2.3.0.49"
+    "Xamarin.Forms": "2.3.0.107"
   },
   "frameworks": {
     "uap10.0": {}
