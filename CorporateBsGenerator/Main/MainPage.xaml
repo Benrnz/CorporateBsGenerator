@@ -5,6 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     Title="{Binding Title}">
     <!-- Takes up the whole screen and we're going to position controls using a table -->
+    <!-- Binds to MainViewModel -->
+    
     <ContentPage.BackgroundColor>
         <OnPlatform x:TypeArguments="Color">
             <OnPlatform.Android>Silver</OnPlatform.Android>
@@ -14,8 +16,14 @@
     </ContentPage.BackgroundColor>
     
     <Grid Padding="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="85"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <!-- Tool bar -->
             <RowDefinition Height="40" />
+            <!-- Main list -->
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
       
@@ -26,6 +34,7 @@
             Text="{Binding Instructions}" />
 
         <StackLayout Grid.Row="0" 
+                     Grid.Column="1"
                      Orientation="Horizontal"
                      HorizontalOptions="End"
                      VerticalOptions="Center">
@@ -66,6 +75,7 @@
 
         <ListView 
             x:Name="MainList" 
+            Grid.ColumnSpan="2"
             Grid.Row="1" 
             ItemsSource="{Binding Results}"
             HasUnevenRows="True"
@@ -99,6 +109,7 @@
             ColorRipple="#ff3498db" 
             Command="{Binding GenerateCommand}" 
             Grid.Row="1" 
+            Grid.ColumnSpan="2"
             HasShadow="True" 
             HorizontalOptions="End" 
             ImageName="ic_add.png" 
