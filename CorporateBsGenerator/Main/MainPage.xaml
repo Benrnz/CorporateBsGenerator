@@ -3,13 +3,27 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:local="clr-namespace:CorporateBsGenerator;assembly=CorporateBsGenerator" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    BackgroundColor="Silver"
     Title="{Binding Title}">
     <!-- Takes up the whole screen and we're going to position controls using a table -->
-
+    <!-- Binds to MainViewModel -->
+    
+    <ContentPage.BackgroundColor>
+        <OnPlatform x:TypeArguments="Color">
+            <OnPlatform.Android>Silver</OnPlatform.Android>
+            <OnPlatform.WinPhone>Silver</OnPlatform.WinPhone>
+            <OnPlatform.iOS>White</OnPlatform.iOS>
+        </OnPlatform>
+    </ContentPage.BackgroundColor>
+    
     <Grid Padding="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="85"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <!-- Tool bar -->
             <RowDefinition Height="40" />
+            <!-- Main list -->
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
       
@@ -20,6 +34,7 @@
             Text="{Binding Instructions}" />
 
         <StackLayout Grid.Row="0" 
+                     Grid.Column="1"
                      Orientation="Horizontal"
                      HorizontalOptions="End"
                      VerticalOptions="Center">
@@ -60,18 +75,21 @@
 
         <ListView 
             x:Name="MainList" 
+            Grid.ColumnSpan="2"
             Grid.Row="1" 
             ItemsSource="{Binding Results}"
             HasUnevenRows="True"
+            SeparatorVisibility="None"
             VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
 
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Margin="0,5,0,5"
+                            <StackLayout
                                 VerticalOptions="FillAndExpand">
-                                <Label Style="{StaticResource Style.Paragraph}" 
+                                <Label Margin="0,5,0,5" 
+                                       Style="{StaticResource Style.Paragraph}" 
                                        Text="{Binding .}" />
                             </StackLayout>
                         </ViewCell.View>
@@ -91,6 +109,7 @@
             ColorRipple="#ff3498db" 
             Command="{Binding GenerateCommand}" 
             Grid.Row="1" 
+            Grid.ColumnSpan="2"
             HasShadow="True" 
             HorizontalOptions="End" 
             ImageName="ic_add.png" 

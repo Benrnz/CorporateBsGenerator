@@ -95,11 +95,14 @@ Global
 		{24C15A62-308E-415C-9E33-E782B25E7479}.AdHoc|ARM.ActiveCfg = AppStore|iPhone
 		{24C15A62-308E-415C-9E33-E782B25E7479}.AdHoc|RealDevices.ActiveCfg = Ad-Hoc|iPhone
 		{24C15A62-308E-415C-9E33-E782B25E7479}.AdHoc|Simulator.ActiveCfg = Ad-Hoc|iPhoneSimulator
+		{24C15A62-308E-415C-9E33-E782B25E7479}.AdHoc|Simulator.Build.0 = Ad-Hoc|iPhoneSimulator
+		{24C15A62-308E-415C-9E33-E782B25E7479}.AdHoc|Simulator.Deploy.0 = Ad-Hoc|iPhoneSimulator
 		{24C15A62-308E-415C-9E33-E782B25E7479}.AdHoc|x64.ActiveCfg = AppStore|iPhone
 		{24C15A62-308E-415C-9E33-E782B25E7479}.AdHoc|x86.ActiveCfg = AppStore|iPhone
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Debug|ARM.ActiveCfg = Debug|iPhoneSimulator
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Debug|RealDevices.ActiveCfg = Debug|iPhone
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Debug|Simulator.ActiveCfg = Debug|iPhoneSimulator
+		{24C15A62-308E-415C-9E33-E782B25E7479}.Debug|Simulator.Build.0 = Debug|iPhoneSimulator
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Debug|x64.ActiveCfg = Debug|iPhoneSimulator
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Debug|x86.ActiveCfg = Debug|iPhoneSimulator
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Store|ARM.ActiveCfg = AppStore|iPhoneSimulator
