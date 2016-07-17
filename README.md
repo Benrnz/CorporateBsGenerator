@@ -15,7 +15,7 @@ This is a example application exploring several basic aspects of Xamarin.Forms.
 The Android Corporate BS Generator
 
 
-![iPhone Screenshot](https://github.com/Benrnz/CorporateBsGenerator/blob/develop/Droid/Resources/drawable-xhdpi/Screenshot1.png?raw=true "The iPhone Corporate BS Generator")
+![iPhone Screenshot](https://github.com/Benrnz/CorporateBsGenerator/blob/develop/iOS/Resources/Screenshot2.png?raw=true "The iPhone Corporate BS Generator")
 
 The iPhone Corporate BS Generator
 
