@@ -97,6 +97,7 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>True</BuildIpa>
+	<CodesignProvision>1974fd85-3d49-4ddc-994e-ce9245b68f93</CodesignProvision>
     <CodesignKey>iPhone Developer: Ben Rees (XWQUH3CGWB)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
