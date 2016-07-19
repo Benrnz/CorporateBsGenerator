@@ -110,6 +110,7 @@ Global
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Store|ARM.ActiveCfg = AppStore|iPhoneSimulator
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Store|ARM.Build.0 = AppStore|iPhoneSimulator
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Store|RealDevices.ActiveCfg = AppStore|iPhone
+		{24C15A62-308E-415C-9E33-E782B25E7479}.Store|RealDevices.Build.0 = AppStore|iPhone
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Store|Simulator.ActiveCfg = AppStore|iPhone
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Store|x64.ActiveCfg = AppStore|iPhoneSimulator
 		{24C15A62-308E-415C-9E33-E782B25E7479}.Store|x64.Build.0 = AppStore|iPhoneSimulator
